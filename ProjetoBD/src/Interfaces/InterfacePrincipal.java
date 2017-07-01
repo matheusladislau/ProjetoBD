@@ -4,20 +4,19 @@
  * and open the template in the editor.
  */
 package Interfaces;
-
+import Classes.GerenciadorBD;
 /**
  *
  * @author Matheus
  */
 public class InterfacePrincipal extends javax.swing.JFrame {
-
+    GerenciadorBD bd=new GerenciadorBD();
     /**
      * Creates new form InterfacePrincipal
      */
     public InterfacePrincipal() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,22 +26,51 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
+        txt_titulo = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(495, 320));
+        setPreferredSize(new java.awt.Dimension(495, 320));
+
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_blue.jpg"))); // NOI18N
+        txt_titulo.setText("SISTEMA SEM NOME");
+        txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(191, 191, 191))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 158, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(72, 72, 72))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        System.out.println(bd.MaxIdPessoa());
+    }//GEN-LAST:event_jButton1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -77,7 +105,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         });
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }
