@@ -4,13 +4,11 @@
  * and open the template in the editor.
  */
 package Interfaces;
-
 /**
  *
  * @author Matheus
  */
 public class CadastrarPessoa extends javax.swing.JFrame {
-
     /**
      * Creates new form InserirPessoa
      */

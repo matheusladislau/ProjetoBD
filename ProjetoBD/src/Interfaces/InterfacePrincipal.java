@@ -27,6 +27,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         txt_titulo = new javax.swing.JLabel();
+        btn_cadastrarPessoa = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuCadastrar = new javax.swing.JMenu();
         mi_CPessoa = new javax.swing.JMenuItem();
@@ -44,11 +45,24 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         txt_titulo.setText("SISTEMA SEM NOME");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
+        btn_cadastrarPessoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cadastrarPessoa.setText("Cadastrar Pessoa");
+        btn_cadastrarPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarPessoaActionPerformed(evt);
+            }
+        });
+
         menuCadastrar.setText("Cadastrar");
 
         mi_CPessoa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         mi_CPessoa.setText("Pessoa");
         mi_CPessoa.setToolTipText("");
+        mi_CPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_CPessoaActionPerformed(evt);
+            }
+        });
         menuCadastrar.add(mi_CPessoa);
 
         jMenuItem1.setText("jMenuItem1");
@@ -66,16 +80,32 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(btn_cadastrarPessoa)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_cadastrarPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_cadastrarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarPessoaActionPerformed
+        new CadastrarPessoa().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btn_cadastrarPessoaActionPerformed
+
+    private void mi_CPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CPessoaActionPerformed
+        new CadastrarPessoa().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_mi_CPessoaActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -111,6 +141,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cadastrarPessoa;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastrar;
