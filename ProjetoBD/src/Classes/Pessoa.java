@@ -3,16 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package projetobd;
+package Classes;
 /**
  *
  * @author Matheus
  */
     public class Pessoa{
-    int idPessoa;
-    String nome;
+    private int idPessoa;
+    private String nome;
     public Pessoa(int idPessoa,String nome){
         this.idPessoa=idPessoa;
         this.nome=nome;
+    }
+    public int getIdPessoa() {
+        return this.idPessoa;
+    }
+    public String getNome() {
+        return this.nome;
     }
 }
