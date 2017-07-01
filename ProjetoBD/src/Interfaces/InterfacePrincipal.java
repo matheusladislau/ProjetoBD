@@ -27,7 +27,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         txt_titulo = new javax.swing.JLabel();
-        btn_cadastrarPessoa = new javax.swing.JButton();
+        btn_cadastrar2Telefone = new javax.swing.JButton();
+        btn_cadastrarPessoa1 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuCadastrar = new javax.swing.JMenu();
         mi_CPessoa = new javax.swing.JMenuItem();
@@ -47,11 +48,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         txt_titulo.setText("SISTEMA SEM NOME");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btn_cadastrarPessoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_cadastrarPessoa.setText("Cadastrar Pessoa");
-        btn_cadastrarPessoa.addActionListener(new java.awt.event.ActionListener() {
+        btn_cadastrar2Telefone.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cadastrar2Telefone.setText("Cadastrar Outro Telefone");
+        btn_cadastrar2Telefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrarPessoaActionPerformed(evt);
+                btn_cadastrar2TelefoneActionPerformed(evt);
+            }
+        });
+
+        btn_cadastrarPessoa1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cadastrarPessoa1.setText("Cadastrar Pessoa");
+        btn_cadastrarPessoa1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarPessoa1ActionPerformed(evt);
             }
         });
 
@@ -83,31 +92,45 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(btn_cadastrarPessoa)
+                .addGap(40, 40, 40)
+                .addComponent(btn_cadastrar2Telefone)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(38, 38, 38)
+                    .addComponent(btn_cadastrarPessoa1)
+                    .addContainerGap(317, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btn_cadastrarPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 128, Short.MAX_VALUE)
+                .addComponent(btn_cadastrar2Telefone, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(56, 56, 56))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(75, 75, 75)
+                    .addComponent(btn_cadastrarPessoa1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(156, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_cadastrarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarPessoaActionPerformed
-        new CadastrarPessoa().setVisible(true);
+    private void btn_cadastrar2TelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrar2TelefoneActionPerformed
+        new CadastrarOutroTelefone().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_btn_cadastrarPessoaActionPerformed
+    }//GEN-LAST:event_btn_cadastrar2TelefoneActionPerformed
 
     private void mi_CPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CPessoaActionPerformed
         new CadastrarPessoa().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_mi_CPessoaActionPerformed
+
+    private void btn_cadastrarPessoa1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarPessoa1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cadastrarPessoa1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -143,7 +166,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cadastrarPessoa;
+    private javax.swing.JButton btn_cadastrar2Telefone;
+    private javax.swing.JButton btn_cadastrarPessoa1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastrar;

@@ -87,13 +87,35 @@ public class GerenciadorBD{
             return 1;
         }
     }
+    
+    
+    
+    
+    
+    
+    public String selectNomePessoa(int idPessoa){
+        String resultado="ID: "+idPessoa+" || Nome: ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE idPessoa="+idPessoa+";"); 
+            ResultSet rs;
+            rs=stm.executeQuery();
+            while(rs.next()){
+                resultado+=rs.getString("nomePessoa");
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
+    
 }
 //delete from Pessoa where idPessoa<100;
 
 /*
 CREATE TABLE IF NOT EXISTS Pessoa(
 	idPessoa INT NOT NULL,
-	nome varchar(90) NOT NULL,
+	nomePessoa varchar(90) NOT NULL,
 	
 CONSTRAINT pk_pessoa PRIMARY KEY(idPessoa)
 );
