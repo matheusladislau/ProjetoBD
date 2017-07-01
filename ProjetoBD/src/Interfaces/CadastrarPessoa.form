@@ -27,12 +27,13 @@
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="txt_telefone" min="-2" max="-2" attributes="0"/>
-                  <Group type="102" attributes="0">
-                      <Component id="txt_nome" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
-                      <Component id="cmp_recebeNome" min="-2" pref="83" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="txt_nome" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_telefone" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="cmp_recebeTelefone" min="-2" pref="83" max="-2" attributes="0"/>
+                  <Component id="cmp_recebeNome" min="-2" pref="83" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -56,8 +57,11 @@
                           <Component id="txt_nome" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="cmp_recebeNome" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="txt_telefone" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="txt_telefone" min="-2" max="-2" attributes="0"/>
+                          <Component id="cmp_recebeTelefone" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace pref="63" max="32767" attributes="0"/>
                       <Component id="btn_enviar" min="-2" pref="44" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -118,6 +122,11 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cancelarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="cmp_recebeTelefone">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmp_recebeTelefoneActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

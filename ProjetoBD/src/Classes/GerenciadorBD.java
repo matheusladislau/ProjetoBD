@@ -14,10 +14,9 @@ import java.sql.ResultSet;
  */
 public class GerenciadorBD{
     String banco = "test";
-    
     /**
-    * Insere instância 'Pessoa' no banco de dados
-    * @param p refere-se a instancia de Pessoa a ser inserida
+    * Insere instância de 'Pessoa' no banco de dados
+    * @param p refere-se a instância de Pessoa a ser inserida
     * @return true: inserção concluída com sucesso. false: inserção não realizada 
     */
     public boolean insert(Pessoa p) {
@@ -25,7 +24,7 @@ public class GerenciadorBD{
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");
             PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
-                +"("+(MaxIdPessoa()+1)+ ",'" + p.getNome() + "');");
+                +"("+p.getIdPessoa()+ ",'" + p.getNome() + "');");
             stm.execute();
             return true;
         } catch (Exception e) {
@@ -34,8 +33,8 @@ public class GerenciadorBD{
         }
     }
     /**
-     * Insere instÂncia 'Telefone' no banco de dados
-     * @param t refere-se a instancia de Telefone a ser inserida
+     * Insere instância de 'Telefone' no banco de dados
+     * @param t refere-se a instância de Telefone a ser inserida
      * @return true: inserção concluída com sucesso. false: inserção não realizada 
      */
     public boolean insert(Telefone t){
@@ -43,7 +42,7 @@ public class GerenciadorBD{
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
-            "("+(MaxIdTelefone()+1)+","+t.getIdPessoa()+",'"+t.getNumero()+"');"); 
+            "("+t.getIdTelefone()+","+t.getIdPessoa()+",'"+t.getNumero()+"');"); 
             stm.execute();
             return true;
         }catch(Exception e){
@@ -89,10 +88,6 @@ public class GerenciadorBD{
         }
     }
 }
-
-
-
-
 //delete from Pessoa where idPessoa<100;
 
 /*
