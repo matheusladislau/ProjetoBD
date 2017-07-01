@@ -9,14 +9,9 @@ package Classes;
  * @author Matheus
  */
     public class Pessoa{
-    private int idPessoa;
     private String nome;
-    public Pessoa(int idPessoa,String nome){
-        this.idPessoa=idPessoa;
+    public Pessoa(String nome){
         this.nome=nome;
-    }
-    public int getIdPessoa() {
-        return this.idPessoa;
     }
     public String getNome() {
         return this.nome;

@@ -36,7 +36,9 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(495, 320));
+        setMinimumSize(new java.awt.Dimension(495, 320));
         setPreferredSize(new java.awt.Dimension(495, 320));
+        setSize(new java.awt.Dimension(495, 320));
 
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));

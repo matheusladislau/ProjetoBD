@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaces;
+import Classes.GerenciadorBD;
+import Classes.Pessoa;
 /**
  *
  * @author Matheus
@@ -15,7 +17,6 @@ public class CadastrarPessoa extends javax.swing.JFrame {
     public CadastrarPessoa() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,7 +30,8 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         btn_enviar = new javax.swing.JButton();
         txt_nome = new javax.swing.JLabel();
         txt_telefone = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        cmp_recebeNome = new javax.swing.JTextField();
+        btn_cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -41,15 +43,26 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btn_enviar.setText("Enviar");
+        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enviarActionPerformed(evt);
+            }
+        });
 
         txt_nome.setText("Nome");
 
         txt_telefone.setText("Telefone");
 
-        jTextField1.setText("jTextField1");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        cmp_recebeNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                cmp_recebeNomeActionPerformed(evt);
+            }
+        });
+
+        btn_cancelar.setText("Cancelar");
+        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelarActionPerformed(evt);
             }
         });
 
@@ -59,40 +72,58 @@ public class CadastrarPessoa extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(136, 136, 136)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txt_telefone)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_telefone)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txt_nome)
-                                .addGap(78, 78, 78)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addComponent(txt_nome)
+                        .addGap(78, 78, 78)
+                        .addComponent(cmp_recebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_cancelar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(188, 188, 188))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_nome)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addComponent(txt_telefone)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_nome)
+                            .addComponent(cmp_recebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addComponent(txt_telefone)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btn_cancelar)
+                        .addContainerGap())))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void cmp_recebeNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeNomeActionPerformed
+    }//GEN-LAST:event_cmp_recebeNomeActionPerformed
+
+    private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
+        String nome=cmp_recebeNome.getText();
+        GerenciadorBD bd=new GerenciadorBD(); 
+        bd.insert(new Pessoa(nome));
+        Limpar();
+    }//GEN-LAST:event_btn_enviarActionPerformed
+
+    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+        Limpar();
+    }//GEN-LAST:event_btn_cancelarActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -120,7 +151,6 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -128,9 +158,18 @@ public class CadastrarPessoa extends javax.swing.JFrame {
             }
         });
     }
+    /**
+     * Apaga os textos inseridos pelo usuários das caixas de texto e esconde este painels
+     */
+    void Limpar(){
+        cmp_recebeNome.setText("");
+        new InterfacePrincipal().setVisible(true);
+        setVisible(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_enviar;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField cmp_recebeNome;
     private javax.swing.JLabel txt_nome;
     private javax.swing.JLabel txt_telefone;
     private javax.swing.JLabel txt_titulo;
