@@ -30,12 +30,12 @@ public class EmprestarLivro extends javax.swing.JFrame {
 
         jTextField1 = new javax.swing.JTextField();
         txt_titulo = new javax.swing.JLabel();
-        btn_cancelar = new javax.swing.JButton();
-        btn_enviar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         cmp_recebeIdPessoa = new javax.swing.JTextField();
         cmp_recebeIdLivro = new javax.swing.JTextField();
+        btn_voltar = new javax.swing.JButton();
+        btn_enviar = new javax.swing.JButton();
 
         jTextField1.setText("jTextField1");
 
@@ -48,13 +48,21 @@ public class EmprestarLivro extends javax.swing.JFrame {
         txt_titulo.setText("Emprestar Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btn_cancelar.setText("Cancelar");
-        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel1.setText("ID Pessoa");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel2.setText("ID Livro");
+
+        btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_voltar.setText("Cancelar");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarActionPerformed(evt);
+                btn_voltarActionPerformed(evt);
             }
         });
 
+        btn_enviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_enviar.setText("Enviar");
         btn_enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,60 +70,56 @@ public class EmprestarLivro extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("pess");
-
-        jLabel2.setText("livr");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 400, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(btn_cancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_enviar)
-                .addGap(100, 100, 100))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(97, 97, 97)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(63, 63, 63)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cmp_recebeIdPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                    .addComponent(cmp_recebeIdLivro))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addComponent(cmp_recebeIdPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(cmp_recebeIdPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14)
+                .addComponent(jLabel2)
                 .addGap(18, 18, 18)
+                .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_cancelar)
-                        .addGap(46, 46, 46))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_enviar)
-                        .addGap(61, 61, 61))))
+                    .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(22, 22, 22))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         limpar();
-    }//GEN-LAST:event_btn_cancelarActionPerformed
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
         GerenciadorBD bd=new GerenciadorBD();
@@ -123,8 +127,17 @@ public class EmprestarLivro extends javax.swing.JFrame {
         int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
         int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         Calendar c=Calendar.getInstance();
-        String dataEmprestimo=c.get(Calendar.YEAR)+"-"+(1+c.get(Calendar.MONTH))+"-"+c.get(Calendar.DAY_OF_MONTH);
-        if(bd.insert(new Emprestimo(idEmprestimo,idPessoa,dataEmprestimo,dataEmprestimo,false))){
+        int ano=c.get(Calendar.YEAR);
+        int mes=1+c.get(Calendar.MONTH);
+        int dia=c.get(Calendar.DAY_OF_MONTH);
+        String dataEmprestimo=ano+"-"+mes+"-"+dia;
+        String dataDevolucao="";
+        if(mes<12){// o prazo para devolução será de um mês
+            dataDevolucao=ano+"-"+(mes+1)+"-"+dia;
+        }else{
+            dataDevolucao=(ano+1)+"-"+mes+"-"+dia;
+        }            
+        if(bd.insert(new Emprestimo(idEmprestimo,idPessoa,dataEmprestimo,dataDevolucao,false))){
             JOptionPane.showMessageDialog(null,"Empréstimo de código "+idEmprestimo+" realizado com sucesso.");
             limpar();
         }else{
@@ -176,8 +189,8 @@ public class EmprestarLivro extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_enviar;
+    private javax.swing.JButton btn_voltar;
     private javax.swing.JTextField cmp_recebeIdLivro;
     private javax.swing.JTextField cmp_recebeIdPessoa;
     private javax.swing.JLabel jLabel1;

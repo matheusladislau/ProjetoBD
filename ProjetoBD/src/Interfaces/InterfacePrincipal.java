@@ -27,8 +27,8 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         txt_titulo = new javax.swing.JLabel();
-        btn_cadastrarOutroTelefone = new javax.swing.JButton();
         btn_cadastrarPessoa = new javax.swing.JButton();
+        btn_cadastrarOutroTelefone = new javax.swing.JButton();
         btn_cadastrarLivro = new javax.swing.JButton();
         btn_RealizarEmprestimo = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
@@ -36,6 +36,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         mi_CPessoa = new javax.swing.JMenuItem();
         mi_COutroTelefone = new javax.swing.JMenuItem();
         mi_CLivro = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         menuConsultar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -51,19 +52,19 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         txt_titulo.setText("BIBLIOTECA ALGUMACOISA");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        btn_cadastrarOutroTelefone.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_cadastrarOutroTelefone.setText("Cadastrar Outro Telefone");
-        btn_cadastrarOutroTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cadastrarOutroTelefoneActionPerformed(evt);
-            }
-        });
-
         btn_cadastrarPessoa.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_cadastrarPessoa.setText("CadastrarPessoa");
         btn_cadastrarPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrarPessoaActionPerformed(evt);
+            }
+        });
+
+        btn_cadastrarOutroTelefone.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_cadastrarOutroTelefone.setText("Cadastrar Outro Telefone");
+        btn_cadastrarOutroTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cadastrarOutroTelefoneActionPerformed(evt);
             }
         });
 
@@ -112,6 +113,15 @@ public class InterfacePrincipal extends javax.swing.JFrame {
             }
         });
         menuCadastrar.add(mi_CLivro);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setText("Empréstimo");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        menuCadastrar.add(jMenuItem1);
 
         menuBar.add(menuCadastrar);
 
@@ -187,6 +197,11 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         new EmprestarLivro().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btn_RealizarEmprestimoActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        new EmprestarLivro().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -226,6 +241,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_cadastrarLivro;
     private javax.swing.JButton btn_cadastrarOutroTelefone;
     private javax.swing.JButton btn_cadastrarPessoa;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastrar;
     private javax.swing.JMenu menuConsultar;

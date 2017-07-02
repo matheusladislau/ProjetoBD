@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
  * @author Matheus
  */
 public class CadastrarPessoa extends javax.swing.JFrame {
+
     /**
-     * Creates new form InserirPessoa
+     * Creates new form CadastrarPessoa2
      */
     public CadastrarPessoa() {
         initComponents();
@@ -34,18 +35,15 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         txt_endereco = new javax.swing.JLabel();
         txt_bairro = new javax.swing.JLabel();
         txt_telefone = new javax.swing.JLabel();
-        btn_enviar = new javax.swing.JButton();
         cmp_recebeNomePessoa = new javax.swing.JTextField();
-        btn_voltar = new javax.swing.JButton();
-        cmp_recebeTelefone = new javax.swing.JTextField();
         cmp_recebeEmail = new javax.swing.JTextField();
         cmp_recebeEndereco = new javax.swing.JTextField();
         cmp_recebeBairro = new javax.swing.JTextField();
+        cmp_recebeTelefone = new javax.swing.JTextField();
+        btn_voltar = new javax.swing.JButton();
+        btn_enviar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(452, 260));
-        setMinimumSize(new java.awt.Dimension(452, 260));
-        setPreferredSize(new java.awt.Dimension(452, 260));
 
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -69,17 +67,15 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_telefone.setText("Telefone");
 
-        btn_enviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_enviar.setText("Enviar");
-        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_enviarActionPerformed(evt);
-            }
-        });
-
         cmp_recebeNomePessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmp_recebeNomePessoaActionPerformed(evt);
+            }
+        });
+
+        cmp_recebeTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmp_recebeTelefoneActionPerformed(evt);
             }
         });
 
@@ -91,9 +87,11 @@ public class CadastrarPessoa extends javax.swing.JFrame {
             }
         });
 
-        cmp_recebeTelefone.addActionListener(new java.awt.event.ActionListener() {
+        btn_enviar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_enviar.setText("Enviar");
+        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmp_recebeTelefoneActionPerformed(evt);
+                btn_enviarActionPerformed(evt);
             }
         });
 
@@ -101,40 +99,38 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 190, Short.MAX_VALUE)
+                .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(txt_titulo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txt_endereco)
-                            .addComponent(txt_bairro)
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_email)
-                            .addComponent(txt_nome)
-                            .addComponent(txt_telefone)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmp_recebeTelefone)
-                            .addComponent(cmp_recebeEmail)
-                            .addComponent(cmp_recebeNomePessoa)
-                            .addComponent(cmp_recebeEndereco)
-                            .addComponent(cmp_recebeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(86, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(txt_nome)))
+                    .addComponent(txt_endereco)
+                    .addComponent(txt_bairro, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txt_telefone, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cmp_recebeTelefone)
+                    .addComponent(cmp_recebeEmail)
+                    .addComponent(cmp_recebeNomePessoa)
+                    .addComponent(cmp_recebeEndereco)
+                    .addComponent(cmp_recebeBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmp_recebeNomePessoa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_nome))
@@ -154,27 +150,24 @@ public class CadastrarPessoa extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmp_recebeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_telefone))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmp_recebeNomePessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeNomePessoaActionPerformed
-    }//GEN-LAST:event_cmp_recebeNomePessoaActionPerformed
-
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        GerenciadorBD bd=new GerenciadorBD(); 
-        int idPessoa=bd.MaxIdPessoa()+1;        
+        GerenciadorBD bd=new GerenciadorBD();
+        int idPessoa=bd.MaxIdPessoa()+1;
         String nomePessoa=cmp_recebeNomePessoa.getText();
         String email=cmp_recebeEmail.getText();
         String endereco=cmp_recebeEndereco.getText();
         String bairro=cmp_recebeBairro.getText();
-        
+
         int idTelefone=bd.MaxIdTelefone()+1;
         String numero=cmp_recebeTelefone.getText();
 
@@ -187,6 +180,10 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btn_enviarActionPerformed
 
+    private void cmp_recebeNomePessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeNomePessoaActionPerformed
+
+    }//GEN-LAST:event_cmp_recebeNomePessoaActionPerformed
+
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         Limpar();
     }//GEN-LAST:event_btn_voltarActionPerformed
@@ -194,6 +191,7 @@ public class CadastrarPessoa extends javax.swing.JFrame {
     private void cmp_recebeTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeTelefoneActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cmp_recebeTelefoneActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -221,6 +219,7 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -228,6 +227,7 @@ public class CadastrarPessoa extends javax.swing.JFrame {
             }
         });
     }
+    
     /**
     * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
@@ -236,6 +236,7 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         new InterfacePrincipal().setVisible(true);
         setVisible(false);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_enviar;
     private javax.swing.JButton btn_voltar;

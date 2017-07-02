@@ -80,6 +80,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
             }
         });
 
+        btn_verificarPessoa.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btn_verificarPessoa.setText("Verificar");
         btn_verificarPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
