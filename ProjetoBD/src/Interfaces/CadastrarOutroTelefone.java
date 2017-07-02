@@ -244,8 +244,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         cmp_recebeId.setText("");
         cmp_recebeTelefone.setText("");
         setVisible(false);
-        InterfacePrincipal interfPrincipal=new InterfacePrincipal();
-        interfPrincipal.setVisible(true);
+        new InterfacePrincipal().setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;

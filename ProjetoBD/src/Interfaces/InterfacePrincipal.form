@@ -74,15 +74,13 @@
           <Component id="txt_titulo" alignment="0" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-              <Component id="btn_cadastrar2Telefone" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="btn_cadastrarPessoa1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="317" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="btn_cadastrarPessoa" max="32767" attributes="0"/>
+                  <Component id="btn_cadastrar2Telefone" max="32767" attributes="0"/>
               </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="btn_cadastrarLivro" min="-2" pref="189" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -90,16 +88,14 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Component id="txt_titulo" min="-2" pref="47" max="-2" attributes="0"/>
-              <EmptySpace pref="128" max="32767" attributes="0"/>
-              <Component id="btn_cadastrar2Telefone" min="-2" pref="48" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-          </Group>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="75" max="-2" attributes="0"/>
-                  <Component id="btn_cadastrarPessoa1" min="-2" pref="48" max="-2" attributes="0"/>
-                  <EmptySpace pref="156" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_cadastrarPessoa" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
+                  <Component id="btn_cadastrarLivro" alignment="3" min="-2" pref="48" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Component id="btn_cadastrar2Telefone" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace pref="184" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -132,15 +128,26 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cadastrar2TelefoneActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_cadastrarPessoa1">
+    <Component class="javax.swing.JButton" name="btn_cadastrarPessoa">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Cadastrar Pessoa"/>
+        <Property name="text" type="java.lang.String" value="CadastrarPessoa"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cadastrarPessoa1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cadastrarPessoaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_cadastrarLivro">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cadastrar Livro"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_cadastrarLivroActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -13,7 +13,7 @@ import java.sql.ResultSet;
  * @author Matheus
  */
 public class GerenciadorBD{
-    String banco = "test";
+    String banco = "mydb";
     /**
     * Insere instância de 'Pessoa' no banco de dados
     * @param p refere-se a instância de Pessoa a ser inserida
@@ -70,8 +70,8 @@ public class GerenciadorBD{
         }
     }
     /**
-     * Retorna o maior ID de Teleone já inserida
-     * @return o valor do maior ID de Pessoa já inserida
+     * Retorna o maior ID de Teleone já inserido
+     * @return o valor do maior ID de Telefone já inserido
      */
     public int MaxIdTelefone(){
         int resultado=0;
@@ -87,7 +87,24 @@ public class GerenciadorBD{
             return 1;
         }
     }
-    
+    /**
+     * Retorna o maior ID de Livro já inserido
+     * @return o valor do maior ID de Livro já inserido
+     */
+    public int MaxIdLivro(){
+        int resultado=0;
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT MAX(idLivro) FROM Livro;");
+            ResultSet rs=stm.executeQuery();
+        while(rs.next()){
+            resultado=rs.getInt("max(idLivro)");
+        }
+            return resultado;
+        }catch(Exception e) {
+            return 1;
+        }
+    }
     
     
     
@@ -139,4 +156,16 @@ REFERENCES Pessoa(idPessoa)
                                                                 "(1,1,'(12)98484-8484');");
             stm.execute();
            */
+//dia: '2017-07-01'
 
+/*
+
+
+
+*/
+
+/*
+    CREATE TABLE DIA (
+        ddd DATE
+);
+*/
