@@ -9,21 +9,21 @@ package Classes;
  * @author Matheus
  */
     public class Pessoa{
-    private int cpfPessoa;
+    private int idPessoa;
     private String nomePessoa;
     private String email;
     private String endereco;
     private String bairro;
 
-    public Pessoa(int cpf, String nomePessoa, String email, String endereco, String bairro) {
-        this.cpfPessoa = cpf;
+    public Pessoa(int idPessoa,String nomePessoa,String email,String endereco,String bairro){
+        this.idPessoa = idPessoa;
         this.nomePessoa = nomePessoa;
         this.email = email;
         this.endereco = endereco;
         this.bairro = bairro;
     }
-    public int getCpfPessoa(){
-        return this.cpfPessoa;
+    public int getIdPessoa(){
+        return this.idPessoa;
     }
     public String getNomePessoa(){
         return this.nomePessoa;

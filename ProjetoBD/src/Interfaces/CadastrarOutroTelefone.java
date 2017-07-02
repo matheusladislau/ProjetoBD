@@ -33,7 +33,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         btn_enviar = new javax.swing.JButton();
         cmp_recebeTelefone = new javax.swing.JTextField();
         txt_telefone = new javax.swing.JLabel();
-        btn_cancelar = new javax.swing.JButton();
+        btn_voltar = new javax.swing.JButton();
         txt_hintVerificarId = new javax.swing.JLabel();
         txt_hintVerificarIdResposta = new javax.swing.JLabel();
         txt_titulo = new javax.swing.JLabel();
@@ -41,7 +41,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txt_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_id.setText("cpf");
+        txt_id.setText("ID");
 
         cmp_recebeCpfPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,10 +72,11 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         txt_telefone.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         txt_telefone.setText("Telefone");
 
-        btn_cancelar.setText("Cancelar");
-        btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
+        btn_voltar.setText("Voltar");
+        btn_voltar.setToolTipText("");
+        btn_voltar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_cancelarActionPerformed(evt);
+                btn_voltarActionPerformed(evt);
             }
         });
 
@@ -110,7 +111,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_cancelar)
+                        .addComponent(btn_voltar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
@@ -153,7 +154,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
                 .addComponent(txt_hintVerificarIdResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_cancelar)
+                    .addComponent(btn_voltar)
                     .addComponent(btn_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12))
         );
@@ -168,8 +169,8 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
     private void btn_verificarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verificarPessoaActionPerformed
         if(Integer.parseInt(cmp_recebeCpfPessoa.getText())>0){
             GerenciadorBD bd=new GerenciadorBD();
-            int cpfPessoa=Integer.parseInt(cmp_recebeCpfPessoa.getText());
-            JOptionPane.showMessageDialog(null,bd.selectNome(cpfPessoa));
+            int idPessoa=Integer.parseInt(cmp_recebeCpfPessoa.getText());
+            JOptionPane.showMessageDialog(null,bd.selectNome(idPessoa));
         }else{
             JOptionPane.showMessageDialog(null,"Insira um número de ID para verificar.");
         }
@@ -191,9 +192,9 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
 
     }//GEN-LAST:event_cmp_recebeTelefoneActionPerformed
 
-    private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed
+    private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
         limpar();
-    }//GEN-LAST:event_btn_cancelarActionPerformed
+    }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void txt_hintVerificarIdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_hintVerificarIdMouseEntered
         txt_hintVerificarIdResposta.setText("Verifica o nome da pessoa referente a esta ID.");
@@ -247,9 +248,9 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         new InterfacePrincipal().setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_enviar;
     private javax.swing.JButton btn_verificarPessoa;
+    private javax.swing.JButton btn_voltar;
     private javax.swing.JTextField cmp_recebeCpfPessoa;
     private javax.swing.JTextField cmp_recebeTelefone;
     private javax.swing.JLabel txt_hintVerificarId;

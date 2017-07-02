@@ -43,7 +43,7 @@ public class GerenciadorBD{
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
             PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
-                +"("+p.getCpfPessoa()+",'"+p.getNomePessoa()+"','"+p.getEmail()+"','"+p.getEndereco()+"','"+p.getBairro()+"');");
+                +"("+p.getIdPessoa()+",'"+p.getNomePessoa()+"','"+p.getEmail()+"','"+p.getEndereco()+"','"+p.getBairro()+"');");
             stm.execute();
             return true;
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class GerenciadorBD{
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
-            "("+t.getIdTelefone()+","+t.getCpfPessoa()+",'"+t.getNumero()+"');"); 
+            "("+t.getIdTelefone()+","+t.getIdPessoa()+",'"+t.getNumero()+"');"); 
             stm.execute();
             return true;
         }catch(Exception e){
@@ -133,7 +133,7 @@ public class GerenciadorBD{
         String resultado="ID: "+idPessoa+" || Nome: ";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
-            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE cpf="+idPessoa+";"); 
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE idPessoa="+idPessoa+";"); 
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
