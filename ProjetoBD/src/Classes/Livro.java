@@ -11,15 +11,13 @@ package Classes;
 public class Livro{
     private int idLivro;
     private String nomeLivro;
-    private String sinopseLivro;
     private String autorLivro;
     private String editoraLivro;
     private int anoPublicacaoLivro;
 
-    public Livro(int idLivro,String nomeLivro,String sinopseLivro,String autorLivro,String editoraLivro,int anoPublicacaoLivro) {
+    public Livro(int idLivro,String nomeLivro,String autorLivro,String editoraLivro,int anoPublicacaoLivro) {
         this.idLivro=idLivro;
         this.nomeLivro=nomeLivro;
-        this.sinopseLivro=sinopseLivro;
         this.autorLivro=autorLivro;
         this.editoraLivro=editoraLivro;
         this.anoPublicacaoLivro=anoPublicacaoLivro;
@@ -29,9 +27,6 @@ public class Livro{
     }
     public String getNomeLivro() {
         return this.nomeLivro;
-    }
-    public String getSinopseLivro() {
-        return this.sinopseLivro;
     }
     public String getAutorLivro() {
         return this.autorLivro;

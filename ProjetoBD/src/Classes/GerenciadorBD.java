@@ -24,7 +24,7 @@ public class GerenciadorBD{
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
-            "("+l.getIdLivro()+",'"+l.getNomeLivro()+"','"+l.getSinopseLivro()+"','"+l.getAutorLivro()+"','"+l.getEditoraLivro()+"',"+l.getAnoPublicacaoLivro()+")");            
+            "("+l.getIdLivro()+",'"+l.getNomeLivro()+"','"+l.getAutorLivro()+"','"+l.getEditoraLivro()+"',"+l.getAnoPublicacaoLivro()+")");            
             
             stm.execute();
             return true;

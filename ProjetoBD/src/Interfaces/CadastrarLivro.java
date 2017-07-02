@@ -51,7 +51,6 @@ public class CadastrarLivro extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(400, 350));
         setMinimumSize(new java.awt.Dimension(400, 350));
-        setPreferredSize(new java.awt.Dimension(400, 350));
 
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -168,11 +167,11 @@ public class CadastrarLivro extends javax.swing.JFrame {
         GerenciadorBD bd=new GerenciadorBD();
         int idLivro=bd.MaxIdLivro()+1;
         String nomeLivro=cmp_recebeNomeLivro.getText();
-        String sinopseLivro=cmp_recebeSinopseLivro.getText();
+        //String sinopseLivro=cmp_recebeSinopseLivro.getText();
         String autorLivro=cmp_recebeAutorLivro.getText();
         String editoraLivro=cmp_recebeEditoraLivro.getText();
         int anoPublicacaoLivro=Integer.parseInt(cmp_recebeAnoLivro.getText());
-        bd.insert(new Livro(idLivro,nomeLivro,sinopseLivro,autorLivro,editoraLivro,anoPublicacaoLivro));
+        bd.insert(new Livro(idLivro,nomeLivro,autorLivro,editoraLivro,anoPublicacaoLivro));
         limpar();
     }//GEN-LAST:event_btn_enviarActionPerformed
     /**
