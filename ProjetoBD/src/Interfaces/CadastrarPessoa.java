@@ -7,6 +7,7 @@ package Interfaces;
 import Classes.GerenciadorBD;
 import Classes.Pessoa;
 import Classes.Telefone;
+import javax.swing.JOptionPane;
 /**
  *
  * @author Matheus
@@ -174,9 +175,13 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         int idTelefone=bd.MaxIdTelefone()+1;
         String numero=cmp_recebeTelefone.getText();
 
-        bd.insert(new Pessoa(idPessoa,nomePessoa,email,endereco,bairro));
-        bd.insert(new Telefone(idTelefone,idPessoa,numero));
-        Limpar();
+        if(bd.insert(new Pessoa(idPessoa,nomePessoa,email,endereco,bairro))){
+            bd.insert(new Telefone(idTelefone,idPessoa,numero));
+            JOptionPane.showMessageDialog(null,"Pessoa cadastrada com sucesso.\nID do usuário: "+idPessoa);
+            Limpar();
+        }else{
+            JOptionPane.showMessageDialog(null,"Não foi possível cadastrar este usuário.");
+        }
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     private void btn_cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelarActionPerformed

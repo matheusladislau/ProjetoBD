@@ -15,6 +15,25 @@ import java.sql.ResultSet;
 public class GerenciadorBD{
     String banco = "mydb";
     /**
+     * Insere instância de 'Emprestimo' no banco de dados
+     * @param emp refere-se a instância de Emprestimo a ser inserida
+     * @return true: inserção concluída com sucesso. false: inserção não realizada 
+     */
+    public boolean insert(Emprestimo emp){
+        String comando="INSERT INTO Emprestimo VALUES ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
+            "("+emp.getIdEmprestimo()+","+emp.getIdPessoa()+",'"+emp.getDataEmprestimo()+"','"+emp.getDataDevolucao()+"',"+emp.isDevolvido()+")");            
+            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    /**
      * Insere instância de 'Livro' no banco de dados
      * @param l refere-se a instância de Livro a ser inserida
      * @return true: inserção concluída com sucesso. false: inserção não realizada 
@@ -70,6 +89,24 @@ public class GerenciadorBD{
         }
     }
 //
+    /**
+     * Retorna o maior ID de Emprestimo já inserido
+     * @return o valor do maior ID de Emprestimo já inserido
+     */
+    public int MaxIdEmprestimo(){
+        int resultado=0;
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT MAX(idEmprestimo) FROM Emprestimo;");
+            ResultSet rs=stm.executeQuery();
+        while(rs.next()){
+            resultado=rs.getInt("max(idEmprestimo)");
+        }
+            return resultado;
+        }catch(Exception e) {
+            return 1;
+        }
+    }
     /**
      * Retorna o maior ID de pessoa já inserida
      * @return o valor do maior ID de Pessoa já inserida

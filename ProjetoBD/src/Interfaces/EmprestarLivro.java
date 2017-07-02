@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaces;
+import Classes.Emprestimo;
+import Classes.GerenciadorBD;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 /**
@@ -116,12 +118,18 @@ public class EmprestarLivro extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        //int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
-        //int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
+        GerenciadorBD bd=new GerenciadorBD();
+        int idEmprestimo=bd.MaxIdEmprestimo()+1;
+        int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
+        int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         Calendar c=Calendar.getInstance();
-        int anoAtual=c.get(Calendar.YEAR);
-        int mesAtual=c.get(Calendar.MONTH)+1;
-        JOptionPane.showMessageDialog(null,anoAtual+""+mesAtual);
+        String dataEmprestimo=c.get(Calendar.YEAR)+"-"+(1+c.get(Calendar.MONTH))+"-"+c.get(Calendar.DAY_OF_MONTH);
+        if(bd.insert(new Emprestimo(idEmprestimo,idPessoa,dataEmprestimo,dataEmprestimo,false))){
+            JOptionPane.showMessageDialog(null,"Empréstimo de código "+idEmprestimo+" realizado com sucesso.");
+            limpar();
+        }else{
+            JOptionPane.showMessageDialog(null,"Empréstimo não realizado.");
+        }
     }//GEN-LAST:event_btn_enviarActionPerformed
     /**
      * @param args the command line arguments
@@ -161,6 +169,8 @@ public class EmprestarLivro extends javax.swing.JFrame {
     * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
     public void limpar(){
+        cmp_recebeIdLivro.setText("");
+        cmp_recebeIdPessoa.setText("");
         new InterfacePrincipal().setVisible(true);
         setVisible(false);
     }

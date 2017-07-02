@@ -14,7 +14,6 @@ public class Livro{
     private String autorLivro;
     private String editoraLivro;
     private int anoPublicacaoLivro;
-
     public Livro(int idLivro,String nomeLivro,String autorLivro,String editoraLivro,int anoPublicacaoLivro) {
         this.idLivro=idLivro;
         this.nomeLivro=nomeLivro;
@@ -22,19 +21,19 @@ public class Livro{
         this.editoraLivro=editoraLivro;
         this.anoPublicacaoLivro=anoPublicacaoLivro;
     }
-    public int getIdLivro() {
+    public int getIdLivro(){
         return this.idLivro;
     }
-    public String getNomeLivro() {
+    public String getNomeLivro(){
         return this.nomeLivro;
     }
-    public String getAutorLivro() {
+    public String getAutorLivro(){ 
         return this.autorLivro;
     }
-    public String getEditoraLivro() {
+    public String getEditoraLivro(){
         return this.editoraLivro;
     }
-    public int getAnoPublicacaoLivro() {
+    public int getAnoPublicacaoLivro(){
         return this.anoPublicacaoLivro;
     }
 }

@@ -16,11 +16,11 @@ package Classes;
     private String bairro;
 
     public Pessoa(int idPessoa,String nomePessoa,String email,String endereco,String bairro){
-        this.idPessoa = idPessoa;
-        this.nomePessoa = nomePessoa;
-        this.email = email;
-        this.endereco = endereco;
-        this.bairro = bairro;
+        this.idPessoa=idPessoa;
+        this.nomePessoa=nomePessoa;
+        this.email=email;
+        this.endereco=endereco;
+        this.bairro=bairro;
     }
     public int getIdPessoa(){
         return this.idPessoa;

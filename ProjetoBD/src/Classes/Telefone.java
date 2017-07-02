@@ -17,13 +17,13 @@ package Classes;
         this.idPessoa=idPessoa;
         this.numero=numero;
     }
-    public int getIdTelefone() {
+    public int getIdTelefone(){
         return this.idTelefone;
     }
-    public int getIdPessoa() {
+    public int getIdPessoa(){
         return this.idPessoa;
     }
-    public String getNumero() {
+    public String getNumero(){
         return this.numero;
     }
 }
