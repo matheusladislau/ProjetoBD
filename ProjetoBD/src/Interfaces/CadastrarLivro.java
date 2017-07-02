@@ -5,6 +5,9 @@
  */
 package Interfaces;
 
+import Classes.GerenciadorBD;
+import Classes.Livro;
+
 /**
  *
  * @author Matheus
@@ -33,15 +36,15 @@ public class CadastrarLivro extends javax.swing.JFrame {
         btn_cancelar = new javax.swing.JButton();
         cmp_recebeNomeLivro = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        cmp_recebeSinopseLivro = new javax.swing.JTextArea();
         txt_nome = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        txt_sinopse = new javax.swing.JLabel();
+        txt_autor = new javax.swing.JLabel();
+        cmp_recebeAutorLivro = new javax.swing.JTextField();
+        cmp_recebeAnoLivro = new javax.swing.JTextField();
+        txt_ano = new javax.swing.JLabel();
+        txt_editora = new javax.swing.JLabel();
+        cmp_recebeEditoraLivro = new javax.swing.JTextField();
 
         jTextField1.setText("jTextField1");
 
@@ -58,6 +61,11 @@ public class CadastrarLivro extends javax.swing.JFrame {
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btn_enviar.setText("Enviar");
+        btn_enviar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_enviarActionPerformed(evt);
+            }
+        });
 
         btn_cancelar.setText("Cancelar");
         btn_cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -66,19 +74,19 @@ public class CadastrarLivro extends javax.swing.JFrame {
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        cmp_recebeSinopseLivro.setColumns(20);
+        cmp_recebeSinopseLivro.setRows(5);
+        jScrollPane1.setViewportView(cmp_recebeSinopseLivro);
 
         txt_nome.setText("Nome");
 
-        jLabel1.setText("Sinopse");
+        txt_sinopse.setText("Sinopse");
 
-        jLabel2.setText("Autor");
+        txt_autor.setText("Autor");
 
-        jLabel3.setText("Ano de Publicação");
+        txt_ano.setText("Ano de Publicação");
 
-        jLabel5.setText("Editora");
+        txt_editora.setText("Editora");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -94,23 +102,23 @@ public class CadastrarLivro extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                        .addComponent(txt_editora)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmp_recebeEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
+                        .addComponent(txt_autor)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmp_recebeAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txt_nome)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(cmp_recebeNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
+                        .addComponent(txt_ano)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cmp_recebeAnoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(txt_sinopse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(81, Short.MAX_VALUE))
@@ -124,25 +132,23 @@ public class CadastrarLivro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmp_recebeNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_nome))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(96, 96, 96)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                    .addComponent(txt_sinopse))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_autor)
+                    .addComponent(cmp_recebeAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmp_recebeEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_editora))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cmp_recebeAnoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_ano))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btn_cancelar, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btn_enviar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -156,6 +162,18 @@ public class CadastrarLivro extends javax.swing.JFrame {
         new InterfacePrincipal().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btn_cancelarActionPerformed
+
+    private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
+        GerenciadorBD bd=new GerenciadorBD();
+        int idLivro=bd.MaxIdLivro()+1;
+        String nomeLivro=cmp_recebeNomeLivro.getText();
+        String sinopseLivro=cmp_recebeSinopseLivro.getText();
+        String autorLivro=cmp_recebeAutorLivro.getText();
+        String editoraLivro=cmp_recebeEditoraLivro.getText();
+        int anoPublicacaoLivro=Integer.parseInt(cmp_recebeAnoLivro.getText());
+        bd.insert(new Livro(idLivro,nomeLivro,sinopseLivro,autorLivro,editoraLivro,anoPublicacaoLivro));
+        limpar();
+    }//GEN-LAST:event_btn_enviarActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -190,22 +208,31 @@ public class CadastrarLivro extends javax.swing.JFrame {
             }
         });
     }
+    public void limpar(){
+        new InterfacePrincipal().setVisible(true);
+        cmp_recebeNomeLivro.setText("");
+        cmp_recebeSinopseLivro.setText("");
+        cmp_recebeAutorLivro.setText("");
+        cmp_recebeEditoraLivro.setText("");
+        cmp_recebeAnoLivro.setText("");
+        setVisible(false);
 
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_enviar;
+    private javax.swing.JTextField cmp_recebeAnoLivro;
+    private javax.swing.JTextField cmp_recebeAutorLivro;
+    private javax.swing.JTextField cmp_recebeEditoraLivro;
     private javax.swing.JTextField cmp_recebeNomeLivro;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextArea cmp_recebeSinopseLivro;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
+    private javax.swing.JLabel txt_ano;
+    private javax.swing.JLabel txt_autor;
+    private javax.swing.JLabel txt_editora;
     private javax.swing.JLabel txt_nome;
+    private javax.swing.JLabel txt_sinopse;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }

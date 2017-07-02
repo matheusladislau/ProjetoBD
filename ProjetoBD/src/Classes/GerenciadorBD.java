@@ -15,6 +15,25 @@ import java.sql.ResultSet;
 public class GerenciadorBD{
     String banco = "mydb";
     /**
+     * Insere instância de 'Livro' no banco de dados
+     * @param l refere-se a instância de Livro a ser inserida
+     * @return true: inserção concluída com sucesso. false: inserção não realizada 
+     */
+    public boolean insert(Livro l){
+        String comando="INSERT INTO Livro VALUES ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
+            "("+l.getIdLivro()+",'"+l.getNomeLivro()+"','"+l.getSinopseLivro()+"','"+l.getAutorLivro()+"','"+l.getEditoraLivro()+"',"+l.getAnoPublicacaoLivro()+")");            
+            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
+    /**
     * Insere instância de 'Pessoa' no banco de dados
     * @param p refere-se a instância de Pessoa a ser inserida
     * @return true: inserção concluída com sucesso. false: inserção não realizada 
@@ -156,15 +175,9 @@ REFERENCES Pessoa(idPessoa)
                                                                 "(1,1,'(12)98484-8484');");
             stm.execute();
            */
+
+/*
 //dia: '2017-07-01'
-
-/*
-
-
-
-*/
-
-/*
     CREATE TABLE DIA (
         ddd DATE
 );
