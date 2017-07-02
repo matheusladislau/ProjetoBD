@@ -10,18 +10,18 @@ package Classes;
  */
     public class Telefone{
     int idTelefone;
-    int idPessoa;
+    int cpfPessoa;
     String numero;
     public Telefone(int idTelefone, int idPessoa, String numero) {
         this.idTelefone=idTelefone;
-        this.idPessoa=idPessoa;
+        this.cpfPessoa=idPessoa;
         this.numero=numero;
     }
     public int getIdTelefone() {
         return this.idTelefone;
     }
-    public int getIdPessoa() {
-        return this.idPessoa;
+    public int getCpfPessoa() {
+        return this.cpfPessoa;
     }
     public String getNumero() {
         return this.numero;

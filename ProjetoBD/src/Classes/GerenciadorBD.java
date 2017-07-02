@@ -41,9 +41,9 @@ public class GerenciadorBD{
     public boolean insert(Pessoa p) {
         String comando = "INSERT INTO Pessoa VALUES ";
         try {
-            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
             PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
-                +"("+p.getIdPessoa()+ ",'" + p.getNome() + "');");
+                +"("+p.getCpfPessoa()+",'"+p.getNomePessoa()+"','"+p.getEmail()+"','"+p.getEndereco()+"','"+p.getBairro()+"');");
             stm.execute();
             return true;
         } catch (Exception e) {
@@ -61,7 +61,7 @@ public class GerenciadorBD{
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
-            "("+t.getIdTelefone()+","+t.getIdPessoa()+",'"+t.getNumero()+"');"); 
+            "("+t.getIdTelefone()+","+t.getCpfPessoa()+",'"+t.getNumero()+"');"); 
             stm.execute();
             return true;
         }catch(Exception e){
@@ -133,7 +133,7 @@ public class GerenciadorBD{
         String resultado="ID: "+idPessoa+" || Nome: ";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
-            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE idPessoa="+idPessoa+";"); 
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE cpf="+idPessoa+";"); 
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){

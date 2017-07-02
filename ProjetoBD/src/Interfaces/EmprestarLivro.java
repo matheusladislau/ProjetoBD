@@ -43,7 +43,7 @@ public class EmprestarLivro extends javax.swing.JFrame {
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_blue.jpg"))); // NOI18N
-        txt_titulo.setText("Cadastrar Livro");
+        txt_titulo.setText("Emprestar Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         btn_cancelar.setText("Cancelar");

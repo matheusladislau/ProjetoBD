@@ -28,7 +28,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
     private void initComponents() {
 
         txt_id = new javax.swing.JLabel();
-        cmp_recebeId = new javax.swing.JTextField();
+        cmp_recebeCpfPessoa = new javax.swing.JTextField();
         btn_verificarPessoa = new javax.swing.JButton();
         btn_enviar = new javax.swing.JButton();
         cmp_recebeTelefone = new javax.swing.JTextField();
@@ -41,11 +41,11 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txt_id.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        txt_id.setText("ID Pessoa");
+        txt_id.setText("cpf");
 
-        cmp_recebeId.addActionListener(new java.awt.event.ActionListener() {
+        cmp_recebeCpfPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmp_recebeIdActionPerformed(evt);
+                cmp_recebeCpfPessoaActionPerformed(evt);
             }
         });
 
@@ -122,7 +122,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cmp_recebeTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(cmp_recebeCpfPessoa, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(btn_verificarPessoa)
                         .addGap(18, 18, 18)
@@ -142,7 +142,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(txt_id))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cmp_recebeId, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                        .addComponent(cmp_recebeCpfPessoa, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
                         .addComponent(btn_verificarPessoa)
                         .addComponent(txt_hintVerificarId)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -161,24 +161,24 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmp_recebeIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeIdActionPerformed
+    private void cmp_recebeCpfPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeCpfPessoaActionPerformed
 
-    }//GEN-LAST:event_cmp_recebeIdActionPerformed
+    }//GEN-LAST:event_cmp_recebeCpfPessoaActionPerformed
 
     private void btn_verificarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_verificarPessoaActionPerformed
-        if(Integer.parseInt(cmp_recebeId.getText())>0){
+        if(Integer.parseInt(cmp_recebeCpfPessoa.getText())>0){
             GerenciadorBD bd=new GerenciadorBD();
-            int id=Integer.parseInt(cmp_recebeId.getText());
-            JOptionPane.showMessageDialog(null,bd.selectNome(id));
+            int cpfPessoa=Integer.parseInt(cmp_recebeCpfPessoa.getText());
+            JOptionPane.showMessageDialog(null,bd.selectNome(cpfPessoa));
         }else{
             JOptionPane.showMessageDialog(null,"Insira um número de ID para verificar.");
         }
     }//GEN-LAST:event_btn_verificarPessoaActionPerformed
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        if(cmp_recebeId.getText()!=null){
+        if(cmp_recebeCpfPessoa.getText()!=null){
             GerenciadorBD bd=new GerenciadorBD();
             int idTelefone=bd.MaxIdTelefone()+1;
-            int idPessoa=Integer.parseInt(cmp_recebeId.getText());
+            int idPessoa=Integer.parseInt(cmp_recebeCpfPessoa.getText());
             String telefone=cmp_recebeTelefone.getText();
             bd.insert(new Telefone(idTelefone,idPessoa,telefone));
             limpar();
@@ -241,7 +241,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
     * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
     public void limpar(){
-        cmp_recebeId.setText("");
+        cmp_recebeCpfPessoa.setText("");
         cmp_recebeTelefone.setText("");
         setVisible(false);
         new InterfacePrincipal().setVisible(true);
@@ -250,7 +250,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
     private javax.swing.JButton btn_cancelar;
     private javax.swing.JButton btn_enviar;
     private javax.swing.JButton btn_verificarPessoa;
-    private javax.swing.JTextField cmp_recebeId;
+    private javax.swing.JTextField cmp_recebeCpfPessoa;
     private javax.swing.JTextField cmp_recebeTelefone;
     private javax.swing.JLabel txt_hintVerificarId;
     private javax.swing.JLabel txt_hintVerificarIdResposta;
