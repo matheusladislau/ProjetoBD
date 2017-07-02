@@ -179,8 +179,8 @@ public class CadastrarPessoa extends javax.swing.JFrame {
         });
     }
     /**
-     * Apaga os textos inseridos pelo usuários das caixas de texto e esconde este painels
-     */
+    * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
+    */
     public void Limpar(){
         cmp_recebeNome.setText("");
         new InterfacePrincipal().setVisible(true);

@@ -124,12 +124,12 @@ public class GerenciadorBD{
             return 1;
         }
     }
-    
-    
-    
-    
-    
-    public String selectNomePessoa(int idPessoa){
+    /**
+     * Retorna o nome da Pessoa respectiva ao id
+     * @param idPessoa refere-se ao id da pessoa a ser buscada
+     * @return nome da Pessoa a ser buscada
+     */
+    public String selectNome(int idPessoa){
         String resultado="ID: "+idPessoa+" || Nome: ";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");

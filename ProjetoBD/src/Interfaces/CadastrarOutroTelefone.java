@@ -169,7 +169,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         if(Integer.parseInt(cmp_recebeId.getText())>0){
             GerenciadorBD bd=new GerenciadorBD();
             int id=Integer.parseInt(cmp_recebeId.getText());
-            JOptionPane.showMessageDialog(null,bd.selectNomePessoa(id));
+            JOptionPane.showMessageDialog(null,bd.selectNome(id));
         }else{
             JOptionPane.showMessageDialog(null,"Insira um número de ID para verificar.");
         }
@@ -236,9 +236,9 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
                 new CadastrarOutroTelefone().setVisible(true);
             }
         });
-    }
+    } 
     /**
-    * Apaga os textos inseridos pelo usuários das caixas de texto e esconde este painels
+    * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
     public void limpar(){
         cmp_recebeId.setText("");
