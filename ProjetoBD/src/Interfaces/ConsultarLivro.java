@@ -30,22 +30,19 @@ public class ConsultarLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txt_nome = new javax.swing.JLabel();
         txt_titulo = new javax.swing.JLabel();
-        txt_autor = new javax.swing.JLabel();
-        txt_editora = new javax.swing.JLabel();
-        txt_ano = new javax.swing.JLabel();
-        cmp_recebeNomeLivro = new javax.swing.JTextField();
-        cmp_recebeAutorLivro = new javax.swing.JTextField();
-        cmp_recebeEditoraLivro = new javax.swing.JTextField();
-        cmp_recebeAnoLivro = new javax.swing.JTextField();
+        txt_idLivro = new javax.swing.JLabel();
+        txt_busca = new javax.swing.JLabel();
+        txt_hint1 = new javax.swing.JLabel();
+        txt_hint2p1 = new javax.swing.JLabel();
+        txt_hint2p2 = new javax.swing.JLabel();
+        cmp_recebeIdLivro = new javax.swing.JTextField();
+        cmp_recebeBusca = new javax.swing.JTextField();
+        btn_consultarId = new javax.swing.JButton();
+        btn_consultarBusca = new javax.swing.JButton();
         btn_voltar = new javax.swing.JButton();
-        btn_consultar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        txt_nome.setText("busca");
 
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
@@ -54,11 +51,33 @@ public class ConsultarLivro extends javax.swing.JFrame {
         txt_titulo.setText("Consultar Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        txt_autor.setText("Autor");
+        txt_idLivro.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_idLivro.setText("ID Livro");
 
-        txt_editora.setText("Editora");
+        txt_busca.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        txt_busca.setText("Busca");
 
-        txt_ano.setText("Ano de Publicação");
+        txt_hint1.setText("Use esta consulta caso saiba o ID do Livro.");
+
+        txt_hint2p1.setText("Esta consulta apontará resultados correspondentes");
+
+        txt_hint2p2.setText("encontrados em 'nome do livro', 'autor' e 'editora'.");
+
+        btn_consultarId.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_consultarId.setText("Consultar");
+        btn_consultarId.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarIdActionPerformed(evt);
+            }
+        });
+
+        btn_consultarBusca.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_consultarBusca.setText("Consultar");
+        btn_consultarBusca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarBuscaActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_voltar.setText("Voltar");
@@ -68,79 +87,67 @@ public class ConsultarLivro extends javax.swing.JFrame {
             }
         });
 
-        btn_consultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_consultar.setText("Consultar");
-        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultarActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText("*A busca irá automaticamente consultar nos campos nome do livro, autor e editora pelo livro ");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36))
             .addGroup(layout.createSequentialGroup()
-                .addGap(78, 78, 78)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_editora)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmp_recebeEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txt_hint1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txt_idLivro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_autor)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmp_recebeAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_nome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmp_recebeNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_ano)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cmp_recebeAnoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(txt_busca)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cmp_recebeBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(txt_hint2p1)
+                                    .addComponent(txt_hint2p2)))
+                            .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btn_consultarId, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_consultarBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_recebeNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_nome))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_idLivro))
+                    .addComponent(btn_consultarId))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txt_autor)
-                    .addComponent(cmp_recebeAutorLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(txt_hint1)
+                .addGap(27, 27, 27)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cmp_recebeBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txt_busca))
+                    .addComponent(btn_consultarBusca))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_recebeEditoraLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_editora))
+                .addComponent(txt_hint2p1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_recebeAnoLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txt_ano))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
+                .addComponent(txt_hint2p2)
+                .addGap(18, 18, 18)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();
@@ -150,12 +157,17 @@ public class ConsultarLivro extends javax.swing.JFrame {
         limpar();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
-    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
+    private void btn_consultarBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarBuscaActionPerformed
         GerenciadorBD bd=new GerenciadorBD();
-        String busca=cmp_recebeNomeLivro.getText();
-        JOptionPane.showMessageDialog(null,bd.selectLivro(busca));
-        
-    }//GEN-LAST:event_btn_consultarActionPerformed
+        String busca=cmp_recebeBusca.getText();
+        JOptionPane.showMessageDialog(null,bd.selectLivro(busca));       
+    }//GEN-LAST:event_btn_consultarBuscaActionPerformed
+
+    private void btn_consultarIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarIdActionPerformed
+        GerenciadorBD bd=new GerenciadorBD();
+        int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
+        JOptionPane.showMessageDialog(null,bd.selectLivro(idLivro));
+    }//GEN-LAST:event_btn_consultarIdActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,21 +207,21 @@ public class ConsultarLivro extends javax.swing.JFrame {
     * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
     public void limpar(){
+        cmp_recebeBusca.setText("");
         setVisible(false);
         new InterfacePrincipal().setVisible(true);
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_consultarBusca;
+    private javax.swing.JButton btn_consultarId;
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JTextField cmp_recebeAnoLivro;
-    private javax.swing.JTextField cmp_recebeAutorLivro;
-    private javax.swing.JTextField cmp_recebeEditoraLivro;
-    private javax.swing.JTextField cmp_recebeNomeLivro;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel txt_ano;
-    private javax.swing.JLabel txt_autor;
-    private javax.swing.JLabel txt_editora;
-    private javax.swing.JLabel txt_nome;
+    private javax.swing.JTextField cmp_recebeBusca;
+    private javax.swing.JTextField cmp_recebeIdLivro;
+    private javax.swing.JLabel txt_busca;
+    private javax.swing.JLabel txt_hint1;
+    private javax.swing.JLabel txt_hint2p1;
+    private javax.swing.JLabel txt_hint2p2;
+    private javax.swing.JLabel txt_idLivro;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }
