@@ -19,7 +19,6 @@ public class GerenciadorBD{
      * @param emp refere-se a instância de Emprestimo a ser inserida
      * @return true: inserção concluída com sucesso. false: inserção não realizada 
      */
-    //
     public boolean insert(Emprestimo emp){
         String comando="INSERT INTO Emprestimo VALUES ";
         try{
