@@ -206,6 +206,46 @@ public class GerenciadorBD{
         }
         return resultado;
     }
+    
+    public String selectLivro(String busca){
+        String resultado="Resultados para a consulta:\n\n";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Livro WHERE nomeLivro LIKE '%"+busca+"%' OR "
+                                                                +"autorLivro LIKE '%"+busca+"%' OR editoraLivro LIKE '%"+busca+"%' ;"); 
+            ResultSet rs;
+            rs=stm.executeQuery();
+            while(rs.next()){
+                resultado+="ID Livro: "+rs.getString("idLivro")+" || ";
+                resultado+=rs.getString("nomeLivro")+" || ";
+                resultado+="Autor: "+rs.getString("autorLivro")+", ";
+                resultado+="editora "+rs.getString("editoraLivro")+", ";
+                resultado+=rs.getString("anoPublicacao")+"\n";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
+    
+    public String selectLivro(int idLivro,String nomeLivro,String autorLivro,String editoraLivro,int anoPublicacao){
+        String resultado="Resultados para a consulta:\n\n";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Livro WHERE idLivro LIKE '%"+idLivro+" AND nomeLivro LIKE '%"+nomeLivro+"%' AND "
+                                                                +"email LIKE '%"+autorLivro+"%' AND editora LIKE '%"+editoraLivro+"%' AND anoPublicacao;"); 
+            ResultSet rs;
+            rs=stm.executeQuery();
+            while(rs.next()){
+                resultado+="ID Pessoa: "+rs.getString("idLivro")+" || ";
+                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
+                resultado+="Email: "+rs.getString("email")+"\n";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
 }
 //delete from Pessoa where idPessoa<100;
 
