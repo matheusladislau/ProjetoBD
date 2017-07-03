@@ -35,11 +35,15 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         menuCadastrar = new javax.swing.JMenu();
-        mi_CPessoa = new javax.swing.JMenuItem();
-        mi_COutroTelefone = new javax.swing.JMenuItem();
-        mi_CLivro = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mi_CadPessoa = new javax.swing.JMenuItem();
+        mi_CadOutroTelefone = new javax.swing.JMenuItem();
+        mi_CadLivro = new javax.swing.JMenuItem();
+        mi_CadEmprestimo = new javax.swing.JMenuItem();
         menuConsultar = new javax.swing.JMenu();
+        mi_ConPessoa = new javax.swing.JMenuItem();
+        mi_ConTelefone = new javax.swing.JMenuItem();
+        mi_ConLivro = new javax.swing.JMenuItem();
+        mi_ConEmprestimo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(500, 400));
@@ -104,46 +108,84 @@ public class InterfacePrincipal extends javax.swing.JFrame {
 
         menuCadastrar.setText("Cadastrar");
 
-        mi_CPessoa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        mi_CPessoa.setText("Pessoa");
-        mi_CPessoa.setToolTipText("");
-        mi_CPessoa.addActionListener(new java.awt.event.ActionListener() {
+        mi_CadPessoa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        mi_CadPessoa.setText("Pessoa");
+        mi_CadPessoa.setToolTipText("");
+        mi_CadPessoa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mi_CPessoaActionPerformed(evt);
+                mi_CadPessoaActionPerformed(evt);
             }
         });
-        menuCadastrar.add(mi_CPessoa);
+        menuCadastrar.add(mi_CadPessoa);
 
-        mi_COutroTelefone.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
-        mi_COutroTelefone.setText("Outro Telefone");
-        mi_COutroTelefone.addActionListener(new java.awt.event.ActionListener() {
+        mi_CadOutroTelefone.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
+        mi_CadOutroTelefone.setText("Outro Telefone");
+        mi_CadOutroTelefone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mi_COutroTelefoneActionPerformed(evt);
+                mi_CadOutroTelefoneActionPerformed(evt);
             }
         });
-        menuCadastrar.add(mi_COutroTelefone);
+        menuCadastrar.add(mi_CadOutroTelefone);
 
-        mi_CLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
-        mi_CLivro.setText("Livro");
-        mi_CLivro.addActionListener(new java.awt.event.ActionListener() {
+        mi_CadLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
+        mi_CadLivro.setText("Livro");
+        mi_CadLivro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mi_CLivroActionPerformed(evt);
+                mi_CadLivroActionPerformed(evt);
             }
         });
-        menuCadastrar.add(mi_CLivro);
+        menuCadastrar.add(mi_CadLivro);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem1.setText("Empréstimo");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        mi_CadEmprestimo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_MASK));
+        mi_CadEmprestimo.setText("Empréstimo");
+        mi_CadEmprestimo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                mi_CadEmprestimoActionPerformed(evt);
             }
         });
-        menuCadastrar.add(jMenuItem1);
+        menuCadastrar.add(mi_CadEmprestimo);
 
         menuBar.add(menuCadastrar);
 
         menuConsultar.setText("Consultar");
+
+        mi_ConPessoa.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.SHIFT_MASK));
+        mi_ConPessoa.setText("Pessoa");
+        mi_ConPessoa.setToolTipText("");
+        mi_ConPessoa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_ConPessoaActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(mi_ConPessoa);
+
+        mi_ConTelefone.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK));
+        mi_ConTelefone.setText("Telefone");
+        mi_ConTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_ConTelefoneActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(mi_ConTelefone);
+
+        mi_ConLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK));
+        mi_ConLivro.setText("Livro");
+        mi_ConLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_ConLivroActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(mi_ConLivro);
+
+        mi_ConEmprestimo.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.SHIFT_MASK));
+        mi_ConEmprestimo.setText("Empréstimo");
+        mi_ConEmprestimo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mi_ConEmprestimoActionPerformed(evt);
+            }
+        });
+        menuConsultar.add(mi_ConEmprestimo);
+
         menuBar.add(menuConsultar);
 
         setJMenuBar(menuBar);
@@ -197,10 +239,10 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_cadastrarOutroTelefoneActionPerformed
 
-    private void mi_CPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CPessoaActionPerformed
+    private void mi_CadPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CadPessoaActionPerformed
         new CadastrarPessoa().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_mi_CPessoaActionPerformed
+    }//GEN-LAST:event_mi_CadPessoaActionPerformed
 
     private void btn_cadastrarPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarPessoaActionPerformed
         new CadastrarPessoa().setVisible(true);
@@ -212,25 +254,25 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btn_cadastrarLivroActionPerformed
 
-    private void mi_COutroTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_COutroTelefoneActionPerformed
+    private void mi_CadOutroTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CadOutroTelefoneActionPerformed
         new CadastrarOutroTelefone().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_mi_COutroTelefoneActionPerformed
+    }//GEN-LAST:event_mi_CadOutroTelefoneActionPerformed
 
-    private void mi_CLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CLivroActionPerformed
+    private void mi_CadLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CadLivroActionPerformed
         new CadastrarLivro().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_mi_CLivroActionPerformed
+    }//GEN-LAST:event_mi_CadLivroActionPerformed
 
     private void btn_RealizarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RealizarEmprestimoActionPerformed
         new EmprestarLivro().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btn_RealizarEmprestimoActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+    private void mi_CadEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_CadEmprestimoActionPerformed
         new EmprestarLivro().setVisible(true);
         setVisible(false);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    }//GEN-LAST:event_mi_CadEmprestimoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         new ConsultarPessoa().setVisible(true);
@@ -241,6 +283,24 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         new ConsultarLivro().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void mi_ConPessoaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConPessoaActionPerformed
+        new ConsultarPessoa().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_mi_ConPessoaActionPerformed
+
+    private void mi_ConTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mi_ConTelefoneActionPerformed
+
+    private void mi_ConLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConLivroActionPerformed
+        new ConsultarLivro().setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_mi_ConLivroActionPerformed
+
+    private void mi_ConEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConEmprestimoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mi_ConEmprestimoActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -282,13 +342,17 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_cadastrarPessoa;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastrar;
     private javax.swing.JMenu menuConsultar;
-    private javax.swing.JMenuItem mi_CLivro;
-    private javax.swing.JMenuItem mi_COutroTelefone;
-    private javax.swing.JMenuItem mi_CPessoa;
+    private javax.swing.JMenuItem mi_CadEmprestimo;
+    private javax.swing.JMenuItem mi_CadLivro;
+    private javax.swing.JMenuItem mi_CadOutroTelefone;
+    private javax.swing.JMenuItem mi_CadPessoa;
+    private javax.swing.JMenuItem mi_ConEmprestimo;
+    private javax.swing.JMenuItem mi_ConLivro;
+    private javax.swing.JMenuItem mi_ConPessoa;
+    private javax.swing.JMenuItem mi_ConTelefone;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }

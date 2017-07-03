@@ -181,8 +181,12 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
             int idTelefone=bd.MaxIdTelefone()+1;
             int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
             String telefone=cmp_recebeTelefone.getText();
-            bd.insert(new Telefone(idTelefone,idPessoa,telefone));
-            limpar();
+            if(bd.insert(new Telefone(idTelefone,idPessoa,telefone))){
+                JOptionPane.showMessageDialog(null,"Telefone '"+telefone+"' cadastrado para usuário ID "+idPessoa+".");
+                limpar();                
+            }else{
+                
+            }
         }else{
             JOptionPane.showMessageDialog(null,"Id Pessoa vazio.");
         }

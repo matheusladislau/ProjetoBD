@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 package Interfaces;
-
 import Classes.GerenciadorBD;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author 20515
@@ -30,13 +28,14 @@ public class ConsultarPessoa extends javax.swing.JFrame{
 
         txt_titulo = new javax.swing.JLabel();
         txt_nome = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        txt_email = new javax.swing.JLabel();
+        txt_bairro = new javax.swing.JLabel();
+        txt_hint = new javax.swing.JLabel();
         cmp_recebeNome = new javax.swing.JTextField();
+        cmp_recebeEmail = new javax.swing.JTextField();
         cmp_recebebairro = new javax.swing.JTextField();
         btn_voltar = new javax.swing.JButton();
         btn_consultar = new javax.swing.JButton();
-        cmp_recebeEmail = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -50,11 +49,20 @@ public class ConsultarPessoa extends javax.swing.JFrame{
         txt_nome.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         txt_nome.setText("Nome");
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel2.setText("Email");
+        txt_email.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_email.setText("Email");
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jLabel4.setText("Bairro");
+        txt_bairro.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_bairro.setText("Bairro");
+
+        txt_hint.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_hint.setText("*É possível preencher um ou mais campos para realizar a consulta.");
+
+        cmp_recebeEmail.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cmp_recebeEmailActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_voltar.setText("Voltar");
@@ -72,32 +80,19 @@ public class ConsultarPessoa extends javax.swing.JFrame{
             }
         });
 
-        cmp_recebeEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmp_recebeEmailActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(93, Short.MAX_VALUE)
+                .addContainerGap(83, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_consultar)
-                        .addGap(25, 25, 25))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_bairro, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt_nome, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(txt_email, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(cmp_recebebairro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -105,7 +100,16 @@ public class ConsultarPessoa extends javax.swing.JFrame{
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cmp_recebeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(cmp_recebeNome, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(87, 87, 87))))
+                        .addGap(87, 87, 87))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_hint)
+                            .addComponent(btn_consultar))
+                        .addGap(25, 25, 25))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,17 +121,19 @@ public class ConsultarPessoa extends javax.swing.JFrame{
                     .addComponent(txt_nome))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(txt_email)
                     .addComponent(cmp_recebeEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmp_recebebairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
-                .addGap(43, 43, 43)
+                    .addComponent(txt_bairro))
+                .addGap(23, 23, 23)
+                .addComponent(txt_hint)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,7 +147,7 @@ public class ConsultarPessoa extends javax.swing.JFrame{
         String nome=cmp_recebeNome.getText();
         String email=cmp_recebeEmail.getText();
         String bairro=cmp_recebebairro.getText();
-        JOptionPane.showMessageDialog(null,bd.selectLikeNomeEmailBairro(nome,email,bairro));
+        JOptionPane.showMessageDialog(null,bd.selectPessoa(nome,email,bairro));
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void cmp_recebeEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmp_recebeEmailActionPerformed
@@ -197,8 +203,9 @@ public class ConsultarPessoa extends javax.swing.JFrame{
     private javax.swing.JTextField cmp_recebeEmail;
     private javax.swing.JTextField cmp_recebeNome;
     private javax.swing.JTextField cmp_recebebairro;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel txt_bairro;
+    private javax.swing.JLabel txt_email;
+    private javax.swing.JLabel txt_hint;
     private javax.swing.JLabel txt_nome;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables

@@ -188,8 +188,8 @@ public class GerenciadorBD{
      * @param bairro referente ao bairro da Pessoa
      * @return retorna os valores no banco de dados referentes ao resultado da busca
      */
-    public String selectLikeNomeEmailBairro(String nomePessoa,String email,String bairro){
-        String resultado="Resultados para a consulta: '"+nomePessoa+"' \n\n";
+    public String selectPessoa(String nomePessoa,String email,String bairro){
+        String resultado="Resultados para a consulta:\n\n";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE nomePessoa LIKE '%"+nomePessoa+"%' AND "
@@ -197,8 +197,8 @@ public class GerenciadorBD{
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
-                resultado+="ID Pessoa: "+rs.getString("idPessoa")+"|| ";
-                resultado+="Nome: "+rs.getString("nomePessoa")+"||";
+                resultado+="ID Pessoa: "+rs.getString("idPessoa")+" || ";
+                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
                 resultado+="Email: "+rs.getString("email")+"\n";
             }
         }catch(Exception e){
