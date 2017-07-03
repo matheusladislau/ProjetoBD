@@ -181,7 +181,31 @@ public class GerenciadorBD{
         }
         return resultado;
     }
-    
+    /**
+     * Realiza busca no banco de dados que contém os dados inseridos
+     * @param nomePessoa referente ao nome da Pessoa
+     * @param email referente ao email da Pessoa
+     * @param bairro referente ao bairro da Pessoa
+     * @return retorna os valores no banco de dados referentes ao resultado da busca
+     */
+    public String selectLikeNomeEmailBairro(String nomePessoa,String email,String bairro){
+        String resultado="Resultados para a consulta: '"+nomePessoa+"' \n\n";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE nomePessoa LIKE '%"+nomePessoa+"%' AND "
+                                                                                +"email LIKE '%"+email+"%' AND bairro LIKE '%"+bairro+"%';"); 
+            ResultSet rs;
+            rs=stm.executeQuery();
+            while(rs.next()){
+                resultado+="ID Pessoa: "+rs.getString("idPessoa")+"|| ";
+                resultado+="Nome: "+rs.getString("nomePessoa")+"||";
+                resultado+="Email: "+rs.getString("email")+"\n";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
 }
 //delete from Pessoa where idPessoa<100;
 
