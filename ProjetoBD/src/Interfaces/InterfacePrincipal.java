@@ -54,7 +54,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_blue.jpg"))); // NOI18N
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red3.jpg"))); // NOI18N
         txt_titulo.setText("BIBLIOTECA ALGUMACOISA");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 

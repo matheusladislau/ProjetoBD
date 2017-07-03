@@ -47,7 +47,7 @@ public class ConsultarLivro extends javax.swing.JFrame {
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_blue.jpg"))); // NOI18N
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_green.jpg"))); // NOI18N
         txt_titulo.setText("Consultar Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -168,7 +168,6 @@ public class ConsultarLivro extends javax.swing.JFrame {
         int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         JOptionPane.showMessageDialog(null,bd.selectLivro(idLivro));
     }//GEN-LAST:event_btn_consultarIdActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -195,7 +194,6 @@ public class ConsultarLivro extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(ConsultarLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

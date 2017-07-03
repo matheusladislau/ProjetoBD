@@ -206,7 +206,11 @@ public class GerenciadorBD{
         }
         return resultado;
     }
-    
+    /**
+     *Consulta no banco de dados os Livros que constam o texto informado 
+     * @param busca Palavra ou parte a ser consultada nas informações de Livro
+     * @return Informações referentes ao livro encontrado.
+     */
     public String selectLivro(String busca){
         String resultado="Resultados para a consulta:\n\n";
         try{
@@ -227,6 +231,11 @@ public class GerenciadorBD{
         }
         return resultado;
     }
+    /**
+     * Consulta no banco de dados o livro com o id informado
+     * @param idLivro id do Livro e a ser buscado
+     * @return Informações referentes ao livro encontrado.
+     */
     public String selectLivro(int idLivro){
         String resultado="Resultados para a consulta:\n\n";
         try{
@@ -240,25 +249,6 @@ public class GerenciadorBD{
                 resultado+="Autor: "+rs.getString("autorLivro")+", ";
                 resultado+="editora "+rs.getString("editoraLivro")+", ";
                 resultado+=rs.getString("anoPublicacao")+"\n";
-            }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return resultado;
-    }
-    
-    public String selectLivro(int idLivro,String nomeLivro,String autorLivro,String editoraLivro,int anoPublicacao){
-        String resultado="Resultados para a consulta:\n\n";
-        try{
-            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
-            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Livro WHERE idLivro LIKE '%"+idLivro+" AND nomeLivro LIKE '%"+nomeLivro+"%' AND "
-                                                                +"email LIKE '%"+autorLivro+"%' AND editora LIKE '%"+editoraLivro+"%' AND anoPublicacao;"); 
-            ResultSet rs;
-            rs=stm.executeQuery();
-            while(rs.next()){
-                resultado+="ID Pessoa: "+rs.getString("idLivro")+" || ";
-                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
-                resultado+="Email: "+rs.getString("email")+"\n";
             }
         }catch(Exception e){
             e.printStackTrace();

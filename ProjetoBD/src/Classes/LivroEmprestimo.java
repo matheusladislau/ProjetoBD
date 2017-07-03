@@ -11,4 +11,14 @@ package Classes;
 public class LivroEmprestimo{
     private int idEmprestimo;
     private int idLivro;
+    public LivroEmprestimo(int idEmprestimo,int idLivro){
+        this.idEmprestimo = idEmprestimo;
+        this.idLivro = idLivro;
+    }
+    public int getIdEmprestimo() {
+        return this.idEmprestimo;
+    }
+    public int getIdLivro() {
+        return this.idLivro;
+    }
 }

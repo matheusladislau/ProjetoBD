@@ -205,7 +205,7 @@
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/img/background_blue.jpg"/>
+          <Image iconType="3" name="/img/background_red3.jpg"/>
         </Property>
         <Property name="text" type="java.lang.String" value="BIBLIOTECA ALGUMACOISA"/>
         <Property name="horizontalTextPosition" type="int" value="0"/>
