@@ -6,6 +6,7 @@
 package Interfaces;
 import Classes.Emprestimo;
 import Classes.GerenciadorBD;
+import Classes.LivroEmprestimo;
 import java.util.Calendar;
 import javax.swing.JOptionPane;
 /**
@@ -13,9 +14,10 @@ import javax.swing.JOptionPane;
  * @author Matheus
  */
 public class EmprestarLivro extends javax.swing.JFrame{
-    static int idLivro1;
-    static int idLivro2;
-    static int idLivro3;
+    GerenciadorBD bd=new GerenciadorBD();
+    static int idLivro1=-1;
+    static int idLivro2=-1;
+    static int idLivro3=-1;
     /**
      * Creates new form EmprestarLivro
      */
@@ -35,19 +37,20 @@ public class EmprestarLivro extends javax.swing.JFrame{
         txt_titulo = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        txt_id1 = new javax.swing.JLabel();
+        txt_id2 = new javax.swing.JLabel();
+        txt_id3 = new javax.swing.JLabel();
         cmp_recebeIdPessoa = new javax.swing.JTextField();
         cmp_recebeIdLivro = new javax.swing.JTextField();
         btn_cancelar = new javax.swing.JButton();
         btn_enviar = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         txt_hintResposta = new javax.swing.JLabel();
         txt_hint = new javax.swing.JLabel();
         txt_hintResposta2 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         jTextField1.setText("jTextField1");
 
@@ -109,46 +112,58 @@ public class EmprestarLivro extends javax.swing.JFrame{
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setText("Livros:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txt_hintResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txt_hintResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(12, 12, 12)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_hintResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_hintResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(27, 27, 27))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_cancelar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btn_enviar))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cmp_recebeIdPessoa)
-                            .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(48, 48, 48)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cmp_recebeIdPessoa)
+                                    .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txt_id2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txt_id3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txt_hint, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(btn_cancelar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btn_enviar)
+                        .addComponent(jButton4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txt_hint, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -167,13 +182,13 @@ public class EmprestarLivro extends javax.swing.JFrame{
                     .addComponent(jLabel2)
                     .addComponent(jButton4)
                     .addComponent(txt_hint))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(24, 24, 24)
+                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txt_id1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_id2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txt_id3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(22, 22, 22)
                 .addComponent(txt_hintResposta, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txt_hintResposta2, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -192,10 +207,8 @@ public class EmprestarLivro extends javax.swing.JFrame{
     }//GEN-LAST:event_btn_cancelarActionPerformed
 
     private void btn_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_enviarActionPerformed
-        GerenciadorBD bd=new GerenciadorBD();
         int idEmprestimo=bd.MaxIdEmprestimo()+1;
         int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
-        int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         Calendar c=Calendar.getInstance();
         int ano=c.get(Calendar.YEAR);
         int mes=1+c.get(Calendar.MONTH);
@@ -213,6 +226,12 @@ public class EmprestarLivro extends javax.swing.JFrame{
         }else{
             JOptionPane.showMessageDialog(null,"Empréstimo não realizado.");
         }
+        if(idLivro1!=-1)
+            bd.insert(new LivroEmprestimo(idEmprestimo,idLivro1));
+        if(idLivro2!=-1)
+            bd.insert(new LivroEmprestimo(idEmprestimo,idLivro2));
+        if(idLivro3!=-1)
+            bd.insert(new LivroEmprestimo(idEmprestimo,idLivro3));
     }//GEN-LAST:event_btn_enviarActionPerformed
 
     private void txt_hintMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_hintMouseEntered
@@ -226,13 +245,28 @@ public class EmprestarLivro extends javax.swing.JFrame{
     }//GEN-LAST:event_txt_hintMouseExited
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        GerenciadorBD bd=new GerenciadorBD();
         int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         JOptionPane.showMessageDialog(null,bd.selectLivro(idLivro));
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        if((Integer.parseInt(cmp_recebeIdLivro.getText())<0)||(Integer.parseInt(cmp_recebeIdLivro.getText())>bd.MaxIdLivro()))
+                JOptionPane.showMessageDialog(null,"Código de livro inválido.");
+        else{
+            if(idLivro1==-1){
+                idLivro1=Integer.parseInt(cmp_recebeIdLivro.getText());
+                txt_id1.setText("ID: "+idLivro1);
+            }
+            else 
+                if(idLivro2==-1){
+                    idLivro2=Integer.parseInt(cmp_recebeIdLivro.getText());
+                    txt_id2.setText("ID: "+idLivro2);
+                }
+                else
+                    if(idLivro3==-1)
+                        idLivro3=Integer.parseInt(cmp_recebeIdLivro.getText());
+                        txt_id3.setText("ID: "+idLivro3);
+            }
     }//GEN-LAST:event_jButton4ActionPerformed
     /**
      * @param args the command line arguments
@@ -289,12 +323,13 @@ public class EmprestarLivro extends javax.swing.JFrame{
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel txt_hint;
     private javax.swing.JLabel txt_hintResposta;
     private javax.swing.JLabel txt_hintResposta2;
+    private javax.swing.JLabel txt_id1;
+    private javax.swing.JLabel txt_id2;
+    private javax.swing.JLabel txt_id3;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }
