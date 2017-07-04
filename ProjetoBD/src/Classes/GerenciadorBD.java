@@ -33,6 +33,22 @@ public class GerenciadorBD{
             return false;
         }
     }
+    
+    
+    
+    public boolean insert(LivroEmprestimo le){
+        String comando="INSERT INTO LivroEmprestimo VALUES ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
+            "("+le.getIdEmprestimo()+","+le.getIdLivro()+");");            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     /**
      * Insere instância de 'Livro' no banco de dados
      * @param l refere-se a instância de Livro a ser inserida
