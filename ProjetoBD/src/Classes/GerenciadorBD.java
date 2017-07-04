@@ -86,6 +86,21 @@ public class GerenciadorBD{
             return false;
         }
     }
+    public boolean alterEmailPessoa(int idPessoa,String email) {
+        String comando = "INSERT INTO Pessoa VALUES ";
+        try {
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
+            PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
+                +"("++",'"+p.getNomePessoa()+"','"+p.getEmail()+"','"+p.getEndereco()+"','"+p.getBairro()+"');");
+            stm.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    
     /**
      * Insere instância de 'Telefone' no banco de dados
      * @param t refere-se a instância de Telefone a ser inserida
@@ -273,13 +288,16 @@ public class GerenciadorBD{
         }
         return resultado;
     }
-    
+    /**
+     * Remove Livro do banco de dados
+     * @param idLivro refere-se ao id do Livro a ser removido
+     * @return True- Livro removido com sucesso. False- Livro não removido
+     */
     public boolean removerLivro(int idLivro){
         String comando="DELETE FROM Livro WHERE ";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
-            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
-            "idLivro="+idLivro+";");            
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+"idLivro="+idLivro+";");            
             stm.execute();
             return true;
         }catch(Exception e){
