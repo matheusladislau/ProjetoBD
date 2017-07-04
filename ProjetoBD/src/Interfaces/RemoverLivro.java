@@ -10,15 +10,14 @@ import javax.swing.JOptionPane;
  *
  * @author Matheus
  */
-public class ConsultarTelefone extends javax.swing.JFrame {
+public class RemoverLivro extends javax.swing.JFrame {
     GerenciadorBD bd=new GerenciadorBD();
     /**
-     * Creates new form ConsultarTelefone
+     * Creates new form RemoverLivro
      */
-    public ConsultarTelefone() {
+    public RemoverLivro() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,29 +29,21 @@ public class ConsultarTelefone extends javax.swing.JFrame {
 
         txt_titulo = new javax.swing.JLabel();
         txt_id = new javax.swing.JLabel();
-        cmp_recebeId = new javax.swing.JTextField();
-        btn_consultar = new javax.swing.JButton();
+        cmp_recebeIdLivro = new javax.swing.JTextField();
         btn_voltar = new javax.swing.JButton();
+        btn_remover = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_green.jpg"))); // NOI18N
-        txt_titulo.setText("Consultar Telefone");
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red3.jpg"))); // NOI18N
+        txt_titulo.setText("Remover Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         txt_id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txt_id.setText("ID Pessoa");
-
-        btn_consultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btn_consultar.setText("Consultar");
-        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultarActionPerformed(evt);
-            }
-        });
+        txt_id.setText("ID Livro");
 
         btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_voltar.setText("Voltar");
@@ -62,23 +53,35 @@ public class ConsultarTelefone extends javax.swing.JFrame {
             }
         });
 
+        btn_remover.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btn_remover.setText("Remover");
+        btn_remover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_removerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 45, Short.MAX_VALUE)
-                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(btn_consultar)
-                .addGap(44, 44, 44))
-            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(txt_id)
-                .addGap(10, 10, 10)
-                .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(txt_id)
+                        .addGap(10, 10, 10)
+                        .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(76, 76, 76)
+                        .addComponent(btn_remover)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -86,25 +89,32 @@ public class ConsultarTelefone extends javax.swing.JFrame {
                 .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cmp_recebeIdLivro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_id))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_remover, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-        
-        //JOptionPane.showMessageDialog(null,bd.selectPessoa(nome,email,bairro));
-    }//GEN-LAST:event_btn_consultarActionPerformed
+    private void btn_removerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removerActionPerformed
+        int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
+        int r=Integer.parseInt(JOptionPane.showInputDialog("Digite 0 para remover o seguinte livro: \n"+bd.selectLivro(idLivro)));
+        if(r==0){
+            bd.removerLivro(idLivro);
+            JOptionPane.showMessageDialog(null,"Livro removido.");
+            Limpar();
+        }
+        else
+            JOptionPane.showMessageDialog(null,"Livro não removido.");
+    }//GEN-LAST:event_btn_removerActionPerformed
 
     private void btn_voltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_voltarActionPerformed
-        limpar();
+        Limpar();
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     /**
@@ -124,35 +134,35 @@ public class ConsultarTelefone extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarTelefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RemoverLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarTelefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RemoverLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarTelefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RemoverLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarTelefone.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(RemoverLivro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ConsultarTelefone().setVisible(true);
+                new RemoverLivro().setVisible(true);
             }
         });
     }
-/**
+    /**
     * Apaga os textos dentro da caixa de texto inseridos pelo usuário e esconde painel
     */
-    public void limpar(){
+    public void Limpar(){
         new InterfacePrincipal().setVisible(true);
-        cmp_recebeId.setText("");
         setVisible(false);
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btn_consultar;
+    private javax.swing.JButton btn_remover;
     private javax.swing.JButton btn_voltar;
-    private javax.swing.JTextField cmp_recebeId;
+    private javax.swing.JTextField cmp_recebeIdLivro;
     private javax.swing.JLabel txt_id;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables

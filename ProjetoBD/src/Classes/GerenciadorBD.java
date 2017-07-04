@@ -183,14 +183,16 @@ public class GerenciadorBD{
      * @return nome da Pessoa a ser buscada
      */
     public String selectNomePessoa(int idPessoa){
-        String resultado="ID: "+idPessoa+" || Nome: ";
+        String resultado="Resultados para a consulta:\n\n";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
             PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa WHERE idPessoa="+idPessoa+";"); 
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
-                resultado+=rs.getString("nomePessoa");
+                resultado+="ID: "+rs.getString("idPessoa")+" || ";
+                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
+                resultado+="Email: "+rs.getString("email")+"\n";
             }
         }catch(Exception e){
             e.printStackTrace();
@@ -270,6 +272,20 @@ public class GerenciadorBD{
             e.printStackTrace();
         }
         return resultado;
+    }
+    
+    public boolean removerLivro(int idLivro){
+        String comando="DELETE FROM Livro WHERE ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
+            "idLivro="+idLivro+";");            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 }
 //delete from Pessoa where idPessoa<100;

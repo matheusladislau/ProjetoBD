@@ -29,37 +29,33 @@
           </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txt_hint1" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="txt_idLivro" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="cmp_recebeIdLivro" min="-2" pref="168" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="txt_busca" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="cmp_recebeBusca" min="-2" pref="180" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Component id="txt_hint2p1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="txt_hint2p2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
+                              <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
+                              <Component id="txt_busca" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmp_recebeBusca" min="-2" pref="172" max="-2" attributes="0"/>
                           </Group>
                           <Component id="btn_voltar" alignment="0" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
                   </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="txt_hint1" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="txt_idLivro" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="cmp_recebeIdLivro" min="-2" pref="168" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="txt_hint2p1" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txt_hint2p2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="btn_consultarId" min="-2" pref="96" max="-2" attributes="0"/>
                   <Component id="btn_consultarBusca" min="-2" pref="96" max="-2" attributes="0"/>
@@ -73,12 +69,10 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="txt_titulo" min="-2" pref="47" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="cmp_recebeIdLivro" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txt_idLivro" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="btn_consultarId" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="btn_consultarId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cmp_recebeIdLivro" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txt_idLivro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="txt_hint1" min="-2" max="-2" attributes="0"/>
