@@ -87,11 +87,11 @@ public class GerenciadorBD{
         }
     }
     public boolean alterEmailPessoa(int idPessoa,String email) {
-        String comando = "INSERT INTO Pessoa VALUES ";
+        String comando="UPDATE Pessoa SET ";
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
             PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
-                +"("++",'"+p.getNomePessoa()+"','"+p.getEmail()+"','"+p.getEndereco()+"','"+p.getBairro()+"');");
+                                                            +"email ='"+email+"' WHERE idPessoa="+idPessoa+";");
             stm.execute();
             return true;
         } catch (Exception e) {
@@ -99,7 +99,6 @@ public class GerenciadorBD{
             return false;
         }
     }
-    
     
     /**
      * Insere instância de 'Telefone' no banco de dados

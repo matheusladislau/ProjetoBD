@@ -147,8 +147,14 @@ public class AlterarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void bnt_alterarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_alterarEmailActionPerformed
+        int idPessoa=Integer.parseInt(cmp_recebeId.getText());
         String email=JOptionPane.showInputDialog("Insira o atual email do usuário: ");
-        //bd.alter
+        if(bd.alterEmailPessoa(idPessoa,email)){
+            JOptionPane.showMessageDialog(null,"Alteração realizada.");
+            cmp_recebeId.setText("");
+        }
+        else
+            JOptionPane.showMessageDialog(null,"Alteração não realizada.");
     }//GEN-LAST:event_bnt_alterarEmailActionPerformed
 
     /**
