@@ -182,7 +182,7 @@ public class GerenciadorBD{
      * @param idPessoa refere-se ao id da pessoa a ser buscada
      * @return nome da Pessoa a ser buscada
      */
-    public String selectNome(int idPessoa){
+    public String selectNomePessoa(int idPessoa){
         String resultado="ID: "+idPessoa+" || Nome: ";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");

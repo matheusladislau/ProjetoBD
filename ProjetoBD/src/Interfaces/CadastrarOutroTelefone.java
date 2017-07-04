@@ -170,7 +170,7 @@ public class CadastrarOutroTelefone extends javax.swing.JFrame {
         if(cmp_recebeIdPessoa.getText()!=""){
             GerenciadorBD bd=new GerenciadorBD();
             int idPessoa=Integer.parseInt(cmp_recebeIdPessoa.getText());
-            JOptionPane.showMessageDialog(null,bd.selectNome(idPessoa));
+            JOptionPane.showMessageDialog(null,bd.selectNomePessoa(idPessoa));
         }else{
             JOptionPane.showMessageDialog(null,"Insira um número de ID para verificar.");
         }
