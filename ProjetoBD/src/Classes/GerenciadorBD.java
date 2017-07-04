@@ -304,6 +304,25 @@ public class GerenciadorBD{
             return false;
         }
     }
+    
+    public String selectLivrosNaoDevolvidos(int idPessoa){
+        String resultado="Resultados para a consulta:\n\n";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa NATURAL JOIN Emprestimo NATURAL JOIN LivroEmprestimo WHERE idPessoa="+idPessoa+" AND devolvido;"); 
+            ResultSet rs;
+            rs=stm.executeQuery();
+            while(rs.next()){
+                resultado+="ID Pessoa: "+rs.getString("idPessoa")+" || ";
+                resultado+=rs.getString("nomePessoa")+" || ";
+                resultado+="Data empréstimo: "+rs.getString("dataEmpréstimo")+", ";
+                resultado+="Data devolução "+rs.getString("dataDevolucao")+".";
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return resultado;
+    }
 }
 //delete from Pessoa where idPessoa<100;
 
