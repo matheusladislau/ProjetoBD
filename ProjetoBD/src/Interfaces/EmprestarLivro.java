@@ -93,6 +93,11 @@ public class EmprestarLivro extends javax.swing.JFrame{
         });
 
         jButton3.setText("Verificar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         txt_hint.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txt_hint.setText("?");
@@ -256,18 +261,22 @@ public class EmprestarLivro extends javax.swing.JFrame{
             if(idLivro1==-1){
                 idLivro1=Integer.parseInt(cmp_recebeIdLivro.getText());
                 txt_id1.setText("ID: "+idLivro1);
-            }
-            else 
+            }else 
                 if(idLivro2==-1){
                     idLivro2=Integer.parseInt(cmp_recebeIdLivro.getText());
                     txt_id2.setText("ID: "+idLivro2);
                 }
                 else
-                    if(idLivro3==-1)
+                    if(idLivro3==-1){
                         idLivro3=Integer.parseInt(cmp_recebeIdLivro.getText());
                         txt_id3.setText("ID: "+idLivro3);
             }
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        JOptionPane.showMessageDialog(null,bd.selectPessoa(Integer.parseInt(cmp_recebeIdPessoa.getText())));
+    }//GEN-LAST:event_jButton3ActionPerformed
     /**
      * @param args the command line arguments
      */

@@ -86,12 +86,39 @@ public class GerenciadorBD{
             return false;
         }
     }
-    public boolean alterEmailPessoa(int idPessoa,String email) {
+    public boolean updateEmailPessoa(int idPessoa,String email) {
         String comando="UPDATE Pessoa SET ";
         try {
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
             PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
                                                             +"email ='"+email+"' WHERE idPessoa="+idPessoa+";");
+            stm.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updateEnderecoPessoa(int idPessoa,String endereco) {
+        String comando="UPDATE Pessoa SET ";
+        try {
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
+            PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
+                                                            +"endereco ='"+endereco+"' WHERE idPessoa="+idPessoa+";");
+            stm.execute();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    public boolean updateBairroPessoa(int idPessoa,String bairro) {
+        String comando="UPDATE Pessoa SET ";
+        try {
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/" + banco, "root", "");            
+            PreparedStatement stm=(PreparedStatement) connection.prepareStatement(comando
+                                                            +"endereco ='"+bairro+"' WHERE idPessoa="+idPessoa+";");
             stm.execute();
             return true;
         } catch (Exception e) {
@@ -196,7 +223,7 @@ public class GerenciadorBD{
      * @param idPessoa refere-se ao id da pessoa a ser buscada
      * @return nome da Pessoa a ser buscada
      */
-    public String selectNomePessoa(int idPessoa){
+    public String selectPessoa(int idPessoa){
         String resultado="Resultados para a consulta:\n\n";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
@@ -204,8 +231,10 @@ public class GerenciadorBD{
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
-                resultado+="ID: "+rs.getString("idPessoa")+" || ";
-                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
+                resultado+="ID: "+rs.getString("idPessoa")+". ";
+                resultado+=rs.getString("nomePessoa")+" | ";
+                resultado+="Endereço: "+rs.getString("endereco")+", ";
+                resultado+=rs.getString("bairro")+". ";
                 resultado+="Email: "+rs.getString("email")+"\n";
             }
         }catch(Exception e){
@@ -229,8 +258,10 @@ public class GerenciadorBD{
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
-                resultado+="ID Pessoa: "+rs.getString("idPessoa")+" || ";
-                resultado+="Nome: "+rs.getString("nomePessoa")+" ||";
+                resultado+="ID: "+rs.getString("idPessoa")+". ";
+                resultado+=rs.getString("nomePessoa")+" | ";
+                resultado+="Endereço: "+rs.getString("endereco")+", ";
+                resultado+=rs.getString("bairro")+". ";
                 resultado+="Email: "+rs.getString("email")+"\n";
             }
         }catch(Exception e){
@@ -287,6 +318,19 @@ public class GerenciadorBD{
         }
         return resultado;
     }
+   
+    public boolean removerLivroEmprestimo(int idLivro){
+        String comando="DELETE FROM LivroEmprestimo WHERE ";
+        try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+"idLivro="+idLivro+";");            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     /**
      * Remove Livro do banco de dados
      * @param idLivro refere-se ao id do Livro a ser removido
@@ -304,19 +348,21 @@ public class GerenciadorBD{
             return false;
         }
     }
-    
+   
     public String selectLivrosNaoDevolvidos(int idPessoa){
-        String resultado="Resultados para a consulta:\n\n";
+        String resultado="Livros a serem devolvidos pelo usuário "+idPessoa+":\n\n";
         try{
             Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
-            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa NATURAL JOIN Emprestimo NATURAL JOIN LivroEmprestimo WHERE idPessoa="+idPessoa+" AND devolvido;"); 
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement("SELECT * FROM Pessoa NATURAL JOIN Emprestimo NATURAL JOIN LivroEmprestimo NATURAL JOIN Livro WHERE idPessoa="+idPessoa+" AND devolvido = 0;"); 
             ResultSet rs;
             rs=stm.executeQuery();
             while(rs.next()){
-                resultado+="ID Pessoa: "+rs.getString("idPessoa")+" || ";
-                resultado+=rs.getString("nomePessoa")+" || ";
-                resultado+="Data empréstimo: "+rs.getString("dataEmpréstimo")+", ";
-                resultado+="Data devolução "+rs.getString("dataDevolucao")+".";
+                //resultado+="ID Pessoa: "+rs.getString("idPessoa")+" || ";
+                //resultado+=rs.getString("nomePessoa")+" || ";
+                resultado+="ID Livro: "+rs.getString("idLivro")+", ";
+                resultado+=rs.getString("nomeLivro")+" || ";
+                resultado+="Data empréstimo: "+rs.getString("dataEmprestimo")+", ";
+                resultado+="Data devolução "+rs.getString("dataDevolucao")+".\n";
             }
         }catch(Exception e){
             e.printStackTrace();

@@ -36,7 +36,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
         bnt_alterarRua = new javax.swing.JButton();
         btn_alterarBairro = new javax.swing.JButton();
         bnt_alterarEmail = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,10 +64,23 @@ public class AlterarUsuario extends javax.swing.JFrame {
             }
         });
 
+        bnt_alterarRua.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         bnt_alterarRua.setText("Alterar Rua");
+        bnt_alterarRua.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bnt_alterarRuaActionPerformed(evt);
+            }
+        });
 
+        btn_alterarBairro.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btn_alterarBairro.setText("Alterar Bairro");
+        btn_alterarBairro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_alterarBairroActionPerformed(evt);
+            }
+        });
 
+        bnt_alterarEmail.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         bnt_alterarEmail.setText("Alterar Email");
         bnt_alterarEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -76,39 +88,30 @@ public class AlterarUsuario extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Talvez, apenas altear email do usupario");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(bnt_alterarRua)
-                .addGap(147, 147, 147))
             .addGroup(layout.createSequentialGroup()
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 66, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(101, 101, 101)
                         .addComponent(txt_id)
                         .addGap(10, 10, 10)
                         .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btn_consultar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(51, 51, 51)
-                        .addComponent(bnt_alterarEmail)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(257, Short.MAX_VALUE)
-                    .addComponent(btn_alterarBairro)
-                    .addGap(138, 138, 138)))
+                        .addGap(32, 32, 32)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(bnt_alterarRua, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_alterarBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bnt_alterarEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,20 +122,15 @@ public class AlterarUsuario extends javax.swing.JFrame {
                     .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_id)
                     .addComponent(btn_consultar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(bnt_alterarRua)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btn_alterarBairro)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(bnt_alterarEmail)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bnt_alterarRua)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_voltar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bnt_alterarEmail, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(77, 77, 77))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(142, Short.MAX_VALUE)
-                    .addComponent(btn_alterarBairro)
-                    .addGap(135, 135, 135)))
+                .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,19 +141,41 @@ public class AlterarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_btn_voltarActionPerformed
 
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-        JOptionPane.showMessageDialog(null,bd.selectNomePessoa(Integer.parseInt(cmp_recebeId.getText())));
+        JOptionPane.showMessageDialog(null,bd.selectPessoa(Integer.parseInt(cmp_recebeId.getText())));
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     private void bnt_alterarEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_alterarEmailActionPerformed
         int idPessoa=Integer.parseInt(cmp_recebeId.getText());
-        String email=JOptionPane.showInputDialog("Insira o atual email do usuário: ");
-        if(bd.alterEmailPessoa(idPessoa,email)){
+        String email=JOptionPane.showInputDialog("Insira o novo email do usuário: ");
+        if(bd.updateEmailPessoa(idPessoa,email)){
             JOptionPane.showMessageDialog(null,"Alteração realizada.");
             cmp_recebeId.setText("");
         }
         else
             JOptionPane.showMessageDialog(null,"Alteração não realizada.");
     }//GEN-LAST:event_bnt_alterarEmailActionPerformed
+
+    private void bnt_alterarRuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_alterarRuaActionPerformed
+        int idPessoa=Integer.parseInt(cmp_recebeId.getText());
+        String email=JOptionPane.showInputDialog("Insira o novo endereço do usuário: ");
+        if(bd.updateEnderecoPessoa(idPessoa,email)){
+            JOptionPane.showMessageDialog(null,"Alteração realizada.");
+            cmp_recebeId.setText("");
+        }
+        else
+            JOptionPane.showMessageDialog(null,"Alteração não realizada.");
+    }//GEN-LAST:event_bnt_alterarRuaActionPerformed
+
+    private void btn_alterarBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_alterarBairroActionPerformed
+         int idPessoa=Integer.parseInt(cmp_recebeId.getText());
+        String bairro=JOptionPane.showInputDialog("Insira o novo bairro do usuário: ");
+        if(bd.updateBairroPessoa(idPessoa,bairro)){
+            JOptionPane.showMessageDialog(null,"Alteração realizada.");
+            cmp_recebeId.setText("");
+        }
+        else
+            JOptionPane.showMessageDialog(null,"Alteração não realizada.");
+    }//GEN-LAST:event_btn_alterarBairroActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,7 +217,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
     */
     public void limpar(){
         new InterfacePrincipal().setVisible(true);
-        
         setVisible(false);
     }
 
@@ -208,7 +227,6 @@ public class AlterarUsuario extends javax.swing.JFrame {
     private javax.swing.JButton btn_consultar;
     private javax.swing.JButton btn_voltar;
     private javax.swing.JTextField cmp_recebeId;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel txt_id;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables

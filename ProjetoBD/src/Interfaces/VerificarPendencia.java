@@ -27,14 +27,31 @@ public class VerificarPendencia extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btn_voltar = new javax.swing.JButton();
-        bnt_Verificar = new javax.swing.JButton();
+        txt_titulo = new javax.swing.JLabel();
+        txt_id = new javax.swing.JLabel();
         cmp_recebeId = new javax.swing.JTextField();
         btn_consultar = new javax.swing.JButton();
-        txt_id = new javax.swing.JLabel();
-        txt_titulo = new javax.swing.JLabel();
+        btn_voltar = new javax.swing.JButton();
+        bnt_Verificar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
+        txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_green.jpg"))); // NOI18N
+        txt_titulo.setText("Verificar Pendências");
+        txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        txt_id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        txt_id.setText("ID Pessoa");
+
+        btn_consultar.setText("Consultar Pessoa");
+        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_consultarActionPerformed(evt);
+            }
+        });
 
         btn_voltar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btn_voltar.setText("Voltar");
@@ -52,41 +69,25 @@ public class VerificarPendencia extends javax.swing.JFrame {
             }
         });
 
-        btn_consultar.setText("Consultar");
-        btn_consultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_consultarActionPerformed(evt);
-            }
-        });
-
-        txt_id.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        txt_id.setText("ID Pessoa");
-
-        txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
-        txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_green.jpg"))); // NOI18N
-        txt_titulo.setText("Verificar Pendências");
-        txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
+                        .addGap(114, 114, 114)
                         .addComponent(bnt_Verificar, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_id)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btn_consultar))))
+                        .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btn_consultar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(txt_titulo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,11 +98,11 @@ public class VerificarPendencia extends javax.swing.JFrame {
                     .addComponent(cmp_recebeId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_consultar)
                     .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(bnt_Verificar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_voltar, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -113,11 +114,12 @@ public class VerificarPendencia extends javax.swing.JFrame {
 
     private void bnt_VerificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bnt_VerificarActionPerformed
         int idPessoa=Integer.parseInt(cmp_recebeId.getText());
-        JOptionPane.showMessageDialog(null,bd.selectNomePessoa(Integer.parseInt(cmp_recebeId.getText())));
+        JOptionPane.showMessageDialog(null,bd.selectLivrosNaoDevolvidos(idPessoa));
     }//GEN-LAST:event_bnt_VerificarActionPerformed
 
     private void btn_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_consultarActionPerformed
-        JOptionPane.showMessageDialog(null,bd.selectNomePessoa(Integer.parseInt(cmp_recebeId.getText())));
+        int idPessoa=Integer.parseInt(cmp_recebeId.getText());
+        JOptionPane.showMessageDialog(null,bd.selectPessoa(idPessoa));
     }//GEN-LAST:event_btn_consultarActionPerformed
 
     /**
