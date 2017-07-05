@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 /**
  *
- * @author Matheus
+ * @author Matheus Ladislau
  */
 public class GerenciadorBD{
     String banco = "mydb";
