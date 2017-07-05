@@ -34,7 +34,19 @@ public class GerenciadorBD{
         }
     }
     
-    
+    public boolean devolverLivro(int idPessoa,int idLivro){ //
+        String comando="SELECT * FROM Pessoa NATURAL JOIN Emprestimo NATURAL JOIN LivroEmprestimo ";
+            try{
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/"+banco,"root","");
+            PreparedStatement stm=(PreparedStatement)connection.prepareStatement(comando+
+            "WHERE idPessa = "+idPessoa+" AND idLivro = "+idLivro+";");            
+            stm.execute();
+            return true;
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        }
+    }
     
     public boolean insert(LivroEmprestimo le){
         String comando="INSERT INTO LivroEmprestimo VALUES ";
