@@ -35,7 +35,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         btn_RealizarEmprestimo1 = new javax.swing.JButton();
         btn_cadastrarLivro1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         btn_removerLivro = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
@@ -46,7 +45,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         mi_CadEmprestimo = new javax.swing.JMenuItem();
         menuConsultar = new javax.swing.JMenu();
         mi_ConPessoa = new javax.swing.JMenuItem();
-        mi_ConTelefone = new javax.swing.JMenuItem();
         mi_ConLivro = new javax.swing.JMenuItem();
         mi_ConEmprestimo = new javax.swing.JMenuItem();
 
@@ -59,7 +57,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red3.jpg"))); // NOI18N
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red.jpg"))); // NOI18N
         txt_titulo.setText("BIBLIOTECA ALGUMACOISA");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -124,13 +122,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         btn_cadastrarLivro1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_cadastrarLivro1ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Consultar telefone");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
             }
         });
 
@@ -202,15 +193,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         });
         menuConsultar.add(mi_ConPessoa);
 
-        mi_ConTelefone.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.SHIFT_MASK));
-        mi_ConTelefone.setText("Telefone");
-        mi_ConTelefone.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mi_ConTelefoneActionPerformed(evt);
-            }
-        });
-        menuConsultar.add(mi_ConTelefone);
-
         mi_ConLivro.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.SHIFT_MASK));
         mi_ConLivro.setText("Livro");
         mi_ConLivro.addActionListener(new java.awt.event.ActionListener() {
@@ -250,18 +232,20 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                     .addComponent(btn_RealizarEmprestimo, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(73, 73, 73)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(btn_RealizarEmprestimo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btn_removerLivro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(28, 28, 28))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 3, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(btn_RealizarEmprestimo1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btn_removerLivro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(28, 28, 28))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -273,11 +257,12 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_cadastrarOutroTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_cadastrarOutroTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -294,9 +279,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btn_cadastrarLivro1, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
                     .addComponent(btn_removerLivro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32))
+                .addGap(98, 98, 98))
         );
 
         pack();
@@ -358,10 +341,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_mi_ConPessoaActionPerformed
 
-    private void mi_ConTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConTelefoneActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mi_ConTelefoneActionPerformed
-
     private void mi_ConLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mi_ConLivroActionPerformed
         new ConsultarLivro().setVisible(true);
         setVisible(false);
@@ -380,10 +359,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private void btn_cadastrarLivro1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cadastrarLivro1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btn_cadastrarLivro1ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btn_removerLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_removerLivroActionPerformed
         new RemoverLivro().setVisible(true);
@@ -438,7 +413,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btn_removerLivro;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu menuCadastrar;
@@ -450,7 +424,6 @@ public class InterfacePrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem mi_ConEmprestimo;
     private javax.swing.JMenuItem mi_ConLivro;
     private javax.swing.JMenuItem mi_ConPessoa;
-    private javax.swing.JMenuItem mi_ConTelefone;
     private javax.swing.JLabel txt_titulo;
     // End of variables declaration//GEN-END:variables
 }

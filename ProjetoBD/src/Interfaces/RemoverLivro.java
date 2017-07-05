@@ -39,7 +39,7 @@ public class RemoverLivro extends javax.swing.JFrame {
         txt_titulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         txt_titulo.setForeground(new java.awt.Color(255, 255, 255));
         txt_titulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red3.jpg"))); // NOI18N
+        txt_titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/background_red.jpg"))); // NOI18N
         txt_titulo.setText("Remover Livro");
         txt_titulo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
@@ -116,8 +116,8 @@ public class RemoverLivro extends javax.swing.JFrame {
         int idLivro=Integer.parseInt(cmp_recebeIdLivro.getText());
         int r=Integer.parseInt(JOptionPane.showInputDialog("Digite 0 para remover o seguinte livro: \n"+bd.selectLivro(idLivro)));
         if(r==0){
-            bd.removerLivroEmprestimo(idLivro);
-            bd.removerLivro(idLivro);
+            bd.deleteLivroEmprestimo(idLivro);
+            bd.deleteLivro(idLivro);
             JOptionPane.showMessageDialog(null,"Livro removido.");
             Limpar();
         }
