@@ -8,7 +8,7 @@ import Classes.GerenciadorBD;
 import javax.swing.JOptionPane;
 /**
  *
- * @author 20515
+ * @author Matheus
  */
 public class VerificarPendencia extends javax.swing.JFrame {
     GerenciadorBD bd=new GerenciadorBD();

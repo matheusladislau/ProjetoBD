@@ -10,10 +10,10 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 /**
  *
- * @author Matheus Ladislau
+ * @author Matheus
  */
 public class GerenciadorBD{
-    String banco = "mydb";
+    String banco = "matheusBiblioteca";
     
 //DELETE
     /**

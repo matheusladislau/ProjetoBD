@@ -305,7 +305,7 @@ public class InterfacePrincipal extends javax.swing.JFrame {
         new CadastrarLivro().setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_mi_CadLivroActionPerformed
-
+   
     private void btn_RealizarEmprestimoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_RealizarEmprestimoActionPerformed
         new EmprestarLivro().setVisible(true);
         setVisible(false);
